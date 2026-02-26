@@ -1,0 +1,116 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { siteConfig, timeline } from "../data/siteConfig";
+---
+
+<BaseLayout title="プロフィール" description="ことひらくAI代表・秋吉一輝（あっきー）のプロフィール。琴平町地域おこし協力隊DAOマネージャーとして活動中。">
+  <!-- ページヘッダー -->
+  <section class="bg-primary py-16 md:py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 text-center">
+      <h1 class="text-3xl md:text-4xl font-bold text-white mb-4">プロフィール</h1>
+    </div>
+  </section>
+
+  <!-- プロフィール -->
+  <section class="py-16 md:py-24">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-12">
+        <!-- プロフィール写真のプレースホルダー -->
+        <div class="w-32 h-32 bg-primary/10 rounded-full mx-auto mb-6 flex items-center justify-center">
+          <span class="text-4xl">⛩</span>
+        </div>
+        <h2 class="text-2xl md:text-3xl font-bold text-primary mb-2">
+          {siteConfig.representative}
+        </h2>
+        <p class="text-accent font-medium">ことひらくAI 代表</p>
+        <p class="text-text-light text-sm mt-1">
+          琴平町 地域おこし協力隊 DAOマネージャー
+        </p>
+      </div>
+
+      <!-- ミッション -->
+      <div class="bg-white rounded-2xl p-8 md:p-12 border border-base-dark mb-16">
+        <h3 class="text-xl font-bold text-primary mb-6 text-center">ミッション</h3>
+        <div class="max-w-2xl mx-auto">
+          <blockquote class="text-lg md:text-xl text-primary font-bold text-center mb-8 leading-relaxed">
+            「{siteConfig.tagline}」
+          </blockquote>
+          <p class="text-text-light leading-relaxed mb-6">
+            人口7,600人の「消滅可能性都市」琴平町。
+            人手不足が深刻な地域だからこそ、AIの力が最も活きる。
+            対面×短距離で「すぐ効くAI」を届け、少人数でも回る仕組みを一緒に作ります。
+          </p>
+          <p class="text-text-light leading-relaxed">
+            {siteConfig.philosophy}。
+            AIを売るのではなく、あなたの「困った」を解決する。それが私の仕事です。
+          </p>
+        </div>
+      </div>
+
+      <!-- 強み・特徴 -->
+      <div class="mb-16">
+        <h3 class="text-xl font-bold text-primary mb-8 text-center">強み・特徴</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="bg-white rounded-xl p-6 border border-base-dark">
+            <div class="text-2xl mb-3">🏛️</div>
+            <h4 class="font-bold text-primary mb-2">三層構造の活動</h4>
+            <p class="text-text-light text-sm">
+              行政（役場DX）× 地域（DAO・セミナー）× 個人事業。
+              多角的な視点から地域課題に取り組みます。
+            </p>
+          </div>
+          <div class="bg-white rounded-xl p-6 border border-base-dark">
+            <div class="text-2xl mb-3">⚡</div>
+            <h4 class="font-bold text-primary mb-2">実践型</h4>
+            <p class="text-text-light text-sm">
+              「まず試す」スタイル。対面×短距離で即効性のあるAI活用を提供します。
+            </p>
+          </div>
+          <div class="bg-white rounded-xl p-6 border border-base-dark">
+            <div class="text-2xl mb-3">🌐</div>
+            <h4 class="font-bold text-primary mb-2">全国ネットワーク</h4>
+            <p class="text-text-light text-sm">
+              DAO運営で全国200名超のコミュニティを構築。地域を超えた知見を活用します。
+            </p>
+          </div>
+          <div class="bg-white rounded-xl p-6 border border-base-dark">
+            <div class="text-2xl mb-3">📺</div>
+            <h4 class="font-bold text-primary mb-2">注目のモデルケース</h4>
+            <p class="text-text-light text-sm">
+              消滅可能性都市（人口7,600人）でのAI導入実績が、NHK・日経など多数メディアに取り上げられています。
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 経歴タイムライン -->
+      <div>
+        <h3 class="text-xl font-bold text-primary mb-8 text-center">経歴</h3>
+        <div class="space-y-0">
+          {timeline.map((item, i) => (
+            <div class="flex gap-4 md:gap-8">
+              <!-- タイムラインライン -->
+              <div class="flex flex-col items-center">
+                <div class:list={[
+                  "w-3 h-3 rounded-full mt-2",
+                  i === timeline.length - 1 ? "bg-accent" : "bg-primary/30",
+                ]}></div>
+                {i < timeline.length - 1 && (
+                  <div class="w-0.5 flex-1 bg-primary/10 my-1"></div>
+                )}
+              </div>
+              <!-- コンテンツ -->
+              <div class="pb-8">
+                <div class="text-xs font-medium text-accent mb-1">{item.period}</div>
+                <h4 class="font-bold text-primary">{item.title}</h4>
+                {item.description && (
+                  <p class="text-text-light text-sm mt-1">{item.description}</p>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

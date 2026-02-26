@@ -1,0 +1,118 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { siteConfig, statsHighlights, services } from "../data/siteConfig";
+
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout>
+  <!-- Hero セクション -->
+  <section class="relative bg-primary text-white overflow-hidden">
+    <!-- 背景装飾 -->
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute top-10 right-10 w-64 h-64 bg-accent rounded-full blur-3xl"></div>
+      <div class="absolute bottom-10 left-10 w-48 h-48 bg-accent rounded-full blur-3xl"></div>
+    </div>
+
+    <div class="relative max-w-6xl mx-auto px-4 sm:px-6 py-20 md:py-32">
+      <div class="max-w-3xl">
+        <p class="text-accent font-medium text-sm md:text-base mb-4">
+          香川県琴平町 × AI活用支援
+        </p>
+        <h1 class="text-3xl md:text-5xl font-bold leading-tight mb-6">
+          琴平を<br class="md:hidden" />
+          <span class="text-accent">"少人数でも回る町"</span>へ
+        </h1>
+        <p class="text-white/80 text-base md:text-lg leading-relaxed mb-8 max-w-2xl">
+          対面×短距離で「すぐ効くAI」を届ける。<br />
+          {siteConfig.philosophy}。
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a
+            href={`${base}contact`}
+            class="inline-flex items-center justify-center bg-accent text-white px-8 py-3 rounded-lg font-medium hover:bg-accent-dark transition-colors text-base"
+          >
+            お問い合わせ
+          </a>
+          <a
+            href={`${base}services`}
+            class="inline-flex items-center justify-center border border-white/30 text-white px-8 py-3 rounded-lg font-medium hover:bg-white/10 transition-colors text-base"
+          >
+            サービスを見る
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 実績ハイライト -->
+  <section class="bg-white py-16 md:py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {statsHighlights.map((stat) => (
+          <div class="text-center">
+            <div class="text-4xl md:text-5xl font-bold text-primary">
+              {stat.number}
+              <span class="text-xl md:text-2xl text-accent">{stat.suffix}</span>
+            </div>
+            <p class="text-text-light mt-2 text-sm">{stat.label}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- サービス概要 -->
+  <section class="py-16 md:py-24">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-2xl md:text-3xl font-bold text-primary">サービス</h2>
+        <p class="text-text-light mt-3 max-w-2xl mx-auto">
+          お客様の課題に合わせた3つのサポートメニューをご用意しています
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {services.map((service) => (
+          <a
+            href={`${base}services#${service.id}`}
+            class="group block bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow border border-base-dark"
+          >
+            <div class="text-4xl mb-4">{service.icon}</div>
+            <div class="text-xs font-medium text-accent mb-1">
+              {service.subtitle}
+            </div>
+            <h3 class="text-lg font-bold text-primary mb-3 group-hover:text-accent transition-colors">
+              {service.title}
+            </h3>
+            <p class="text-text-light text-sm leading-relaxed">
+              {service.description}
+            </p>
+            <div class="mt-4 text-accent text-sm font-medium">
+              詳しく見る →
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA セクション -->
+  <section class="bg-primary py-16 md:py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
+        AIで業務を変えてみませんか？
+      </h2>
+      <p class="text-white/70 mb-8 max-w-2xl mx-auto">
+        「AIって何ができるの？」というところから丁寧にサポートします。<br />
+        初回のご相談は無料です。お気軽にお問い合わせください。
+      </p>
+      <a
+        href={`${base}contact`}
+        class="inline-flex items-center justify-center bg-accent text-white px-8 py-3 rounded-lg font-medium hover:bg-accent-dark transition-colors text-base"
+      >
+        無料相談はこちら
+      </a>
+    </div>
+  </section>
+</BaseLayout>

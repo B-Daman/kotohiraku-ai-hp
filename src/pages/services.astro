@@ -1,0 +1,208 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { services, faq } from "../data/siteConfig";
+
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout title="サービス" description="AI導入相談サブスク、プロンプト講座、訪問サポートの3つのサービスで、あなたのAI活用を支援します。">
+  <!-- ページヘッダー -->
+  <section class="bg-primary py-16 md:py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 text-center">
+      <h1 class="text-3xl md:text-4xl font-bold text-white mb-4">サービス</h1>
+      <p class="text-white/70 max-w-2xl mx-auto">
+        お客様の課題に合わせた3つのサポートメニューをご用意しています
+      </p>
+    </div>
+  </section>
+
+  <!-- サービス①: AI導入相談サブスク -->
+  <section id="subscription" class="py-16 md:py-24">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="mb-12">
+        <div class="flex items-center gap-3 mb-2">
+          <span class="text-3xl">💬</span>
+          <span class="text-xs font-medium text-accent bg-accent/10 px-3 py-1 rounded-full">メイン事業</span>
+        </div>
+        <h2 class="text-2xl md:text-3xl font-bold text-primary mb-4">AI導入相談サブスク</h2>
+        <p class="text-text-light max-w-3xl">
+          Discord常時相談＋定期対面訪問で、AI活用を継続的にサポート。
+          業務フロー設計から日々の相談まで、伴走型で支援します。
+        </p>
+      </div>
+
+      <!-- 料金プラン -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {services[0].plans?.map((plan) => (
+          <div class:list={[
+            "rounded-2xl p-6 border-2 transition-shadow",
+            plan.recommended
+              ? "border-accent shadow-lg bg-white relative"
+              : "border-base-dark bg-white hover:shadow-md",
+          ]}>
+            {plan.recommended && (
+              <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-accent text-white text-xs font-medium px-4 py-1 rounded-full">
+                おすすめ
+              </div>
+            )}
+            <h3 class="text-lg font-bold text-primary mb-2">{plan.name}</h3>
+            <div class="mb-4">
+              <span class="text-2xl font-bold text-primary">{plan.price}</span>
+              <span class="text-text-light text-sm">{plan.period}</span>
+            </div>
+            <ul class="space-y-2">
+              {plan.features.map((feature) => (
+                <li class="flex items-start gap-2 text-sm text-text-light">
+                  <span class="text-accent mt-0.5">✓</span>
+                  <span>{feature}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <hr class="border-base-dark max-w-6xl mx-auto" />
+
+  <!-- サービス②: プロンプト講座 -->
+  <section id="workshop" class="py-16 md:py-24">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div>
+          <div class="flex items-center gap-3 mb-2">
+            <span class="text-3xl">📝</span>
+            <span class="text-xs font-medium text-accent bg-accent/10 px-3 py-1 rounded-full">グループ学習</span>
+          </div>
+          <h2 class="text-2xl md:text-3xl font-bold text-primary mb-4">有料プロンプト講座</h2>
+          <p class="text-text-light mb-6">
+            業務に特化したプロンプトを一緒に設計する実践型の講座。
+            議事録作成、メール効率化など、すぐ使えるスキルを身につけます。
+          </p>
+          <ul class="space-y-3 text-sm text-text-light">
+            <li class="flex items-start gap-2">
+              <span class="text-accent mt-0.5">✓</span>
+              <span>業務課題に合わせたカスタマイズ内容</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-accent mt-0.5">✓</span>
+              <span>議事録作成、メール効率化など実務直結</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-accent mt-0.5">✓</span>
+              <span>少人数制で質問しやすい環境</span>
+            </li>
+          </ul>
+        </div>
+        <div class="bg-white rounded-2xl p-8 border border-base-dark text-center">
+          <div class="text-3xl font-bold text-primary mb-2">¥20,000</div>
+          <p class="text-text-light text-sm mb-6">2時間/グループ（3名まで）</p>
+          <a
+            href={`${base}contact`}
+            class="inline-flex items-center justify-center bg-accent text-white px-6 py-2.5 rounded-lg text-sm font-medium hover:bg-accent-dark transition-colors w-full"
+          >
+            講座を申し込む
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="border-base-dark max-w-6xl mx-auto" />
+
+  <!-- サービス③: おたすけサポート -->
+  <section id="support" class="py-16 md:py-24">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div class="order-2 md:order-1 bg-white rounded-2xl p-8 border border-base-dark">
+          <div class="space-y-4">
+            <div class="flex justify-between items-baseline">
+              <span class="font-medium text-primary">基本料金</span>
+              <span class="text-xl font-bold text-primary">¥5,000<span class="text-sm text-text-light font-normal"> / 60分</span></span>
+            </div>
+            <hr class="border-base-dark" />
+            <div class="flex justify-between items-baseline">
+              <span class="font-medium text-primary">延長料金</span>
+              <span class="text-xl font-bold text-primary">¥2,500<span class="text-sm text-text-light font-normal"> / 30分</span></span>
+            </div>
+            <hr class="border-base-dark" />
+            <div class="flex justify-between items-baseline">
+              <span class="font-medium text-primary">対応エリア</span>
+              <span class="text-sm text-text-light">琴平町内（自転車20分圏）</span>
+            </div>
+          </div>
+          <a
+            href={`${base}contact`}
+            class="mt-6 inline-flex items-center justify-center bg-accent text-white px-6 py-2.5 rounded-lg text-sm font-medium hover:bg-accent-dark transition-colors w-full"
+          >
+            サポートを依頼する
+          </a>
+        </div>
+        <div class="order-1 md:order-2">
+          <div class="flex items-center gap-3 mb-2">
+            <span class="text-3xl">🚲</span>
+            <span class="text-xs font-medium text-accent bg-accent/10 px-3 py-1 rounded-full">訪問型</span>
+          </div>
+          <h2 class="text-2xl md:text-3xl font-bold text-primary mb-4">パソコン・AIおたすけサポート</h2>
+          <p class="text-text-light mb-6">
+            琴平町内を自転車で駆けつけ、プリンター接続からAI設定まで対応。
+            「ちょっと困った」をすぐ解決します。
+          </p>
+          <ul class="space-y-3 text-sm text-text-light">
+            <li class="flex items-start gap-2">
+              <span class="text-accent mt-0.5">✓</span>
+              <span>プリンター・Wi-Fi接続サポート</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-accent mt-0.5">✓</span>
+              <span>AI（ChatGPT等）の初期設定</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-accent mt-0.5">✓</span>
+              <span>パソコン・スマホの基本操作支援</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bg-white py-16 md:py-24">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl md:text-3xl font-bold text-primary text-center mb-12">よくある質問</h2>
+      <div class="space-y-6">
+        {faq.map((item) => (
+          <div class="border border-base-dark rounded-xl p-6">
+            <h3 class="font-bold text-primary mb-3 flex items-start gap-2">
+              <span class="text-accent">Q.</span>
+              {item.question}
+            </h3>
+            <p class="text-text-light text-sm leading-relaxed pl-6">
+              {item.answer}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-primary py-16 md:py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
+        まずは気軽にご相談ください
+      </h2>
+      <p class="text-white/70 mb-8">
+        初回のご相談は無料です。お気軽にお問い合わせください。
+      </p>
+      <a
+        href={`${base}contact`}
+        class="inline-flex items-center justify-center bg-accent text-white px-8 py-3 rounded-lg font-medium hover:bg-accent-dark transition-colors"
+      >
+        お問い合わせはこちら
+      </a>
+    </div>
+  </section>
+</BaseLayout>
