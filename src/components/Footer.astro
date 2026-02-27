@@ -28,7 +28,7 @@ const base = import.meta.env.BASE_URL;
           {navigation.map((item) => (
             <li>
               <a
-                href={`${base}${item.href.slice(1)}`}
+                href={`${base}${item.href}`}
                 class="text-sm hover:text-accent transition-colors"
               >
                 {item.label}
