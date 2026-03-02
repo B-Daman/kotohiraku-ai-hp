@@ -1,0 +1,192 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { siteConfig } from "../data/siteConfig";
+
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout title="プライバシーポリシー" description="ことひらくAIのプライバシーポリシー。個人情報の取り扱いについてご説明します。">
+  <!-- ページヘッダー -->
+  <section class="bg-primary py-8 md:py-10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 text-center">
+      <h1 class="text-3xl md:text-4xl font-bold text-white">プライバシーポリシー</h1>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-20">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <div class="space-y-10 text-text-light text-sm leading-relaxed">
+
+        <p>
+          ことひらくAI（以下「当事業」）は、個人情報の保護に関する法律（以下「個人情報保護法」）を遵守し、お客様の個人情報を適切に取り扱います。本ポリシーは、当事業が運営するWebサイト（以下「本サイト」）における個人情報の取り扱いについて定めるものです。
+        </p>
+
+        <!-- 1. 事業者情報 -->
+        <div>
+          <h2 class="text-lg font-bold text-primary mb-3">1. 事業者情報</h2>
+          <table class="text-sm">
+            <tbody>
+              <tr><td class="pr-4 py-1 text-text-lighter">事業者名</td><td class="py-1">ことひらくAI</td></tr>
+              <tr><td class="pr-4 py-1 text-text-lighter">代表者</td><td class="py-1">秋吉 一輝</td></tr>
+              <tr><td class="pr-4 py-1 text-text-lighter">所在地</td><td class="py-1">香川県仲多度郡琴平町</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- 2. 取得する個人情報と取得方法 -->
+        <div>
+          <h2 class="text-lg font-bold text-primary mb-3">2. 取得する個人情報と取得方法</h2>
+          <p class="mb-2">当事業は、以下の方法で個人情報を取得することがあります。</p>
+          <h3 class="font-bold text-primary mt-4 mb-2">（1）お客様からの直接取得</h3>
+          <p>お問い合わせフォーム（Googleフォーム）を通じて、以下の情報をご提供いただきます。</p>
+          <ul class="list-disc pl-5 mt-2 space-y-1">
+            <li>お名前（必須）</li>
+            <li>メールアドレス（必須）</li>
+            <li>お問い合わせ種別（必須）</li>
+            <li>お問い合わせ内容（必須）</li>
+            <li>ご都合の良い曜日・時間帯（任意）</li>
+            <li>会社名・団体名（任意）</li>
+          </ul>
+          <p class="mt-2">個人情報のご提供は任意ですが、必須項目をご入力いただけない場合、お問い合わせへの回答ができないことがあります。</p>
+          <h3 class="font-bold text-primary mt-4 mb-2">（2）自動的に取得する情報</h3>
+          <p>本サイトの閲覧時に、以下の情報が自動的に取得される場合があります。</p>
+          <ul class="list-disc pl-5 mt-2 space-y-1">
+            <li>IPアドレス、ブラウザの種類・言語、アクセス日時（ホスティングサービスによるアクセスログ）</li>
+            <li>Googleフォームの埋め込みに伴うCookie情報（詳細は第8条をご確認ください）</li>
+          </ul>
+        </div>
+
+        <!-- 3. 利用目的 -->
+        <div>
+          <h2 class="text-lg font-bold text-primary mb-3">3. 利用目的</h2>
+          <p>取得した個人情報は、以下の目的の範囲内で利用いたします。</p>
+          <ul class="list-disc pl-5 mt-2 space-y-1">
+            <li>お問い合わせへの回答およびご連絡（メールによる返信・自動返信を含む）</li>
+            <li>ご相談内容に基づくサービス（AI導入サブスク、実務プロンプト講座、おたすけサポート）のご案内・ご提案</li>
+            <li>無料AIセミナーに関するご案内</li>
+            <li>サービス提供に必要な連絡・日程調整</li>
+            <li>サービス品質の改善（お問い合わせ傾向の分析等。個人を特定しない統計的利用に限ります）</li>
+          </ul>
+        </div>
+
+        <!-- 4. 第三者提供 -->
+        <div>
+          <h2 class="text-lg font-bold text-primary mb-3">4. 第三者への提供</h2>
+          <p>当事業は、以下の場合を除き、お客様の同意なく個人情報を第三者に提供することはありません。</p>
+          <ul class="list-disc pl-5 mt-2 space-y-1">
+            <li>法令に基づく場合</li>
+            <li>人の生命・身体・財産の保護のために必要であり、本人の同意を得ることが困難な場合</li>
+            <li>公衆衛生の向上または児童の健全育成のために特に必要な場合</li>
+            <li>国の機関等が法令の定める事務を遂行するのに協力する必要がある場合</li>
+          </ul>
+        </div>
+
+        <!-- 5. 業務委託 -->
+        <div>
+          <h2 class="text-lg font-bold text-primary mb-3">5. 業務委託先への提供</h2>
+          <p>
+            当事業は、お問い合わせフォームの運用にGoogle LLC（米国）が提供するGoogleフォームおよびGoogle Apps Scriptを使用しています。これに伴い、お客様が入力された個人情報は、Google LLCのサーバー（米国等の国外に所在する場合があります）で処理・保存されます。
+          </p>
+          <p class="mt-2">
+            Google LLCは、EU-米国間データプライバシーフレームワーク等に基づく適切な個人情報保護措置を講じています。詳細は<a href="https://policies.google.com/privacy?hl=ja" target="_blank" rel="noopener noreferrer" class="text-accent hover:text-accent-dark transition-colors">Googleプライバシーポリシー</a>をご確認ください。
+          </p>
+        </div>
+
+        <!-- 6. 安全管理措置 -->
+        <div>
+          <h2 class="text-lg font-bold text-primary mb-3">6. 安全管理措置</h2>
+          <p>当事業は、個人情報の漏えい・滅失・き損を防止するため、以下の安全管理措置を講じています。</p>
+          <ul class="list-disc pl-5 mt-2 space-y-1">
+            <li><span class="font-medium text-primary">組織的措置：</span>代表者が個人情報管理の責任者として、取り扱い状況を定期的に確認します</li>
+            <li><span class="font-medium text-primary">人的措置：</span>個人情報は代表者のみが取り扱い、取り扱いルールを遵守します</li>
+            <li><span class="font-medium text-primary">技術的措置：</span>Googleアカウントへの二段階認証の設定、HTTPS（SSL/TLS）による通信の暗号化を実施しています</li>
+          </ul>
+        </div>
+
+        <!-- 7. 保存期間 -->
+        <div>
+          <h2 class="text-lg font-bold text-primary mb-3">7. 個人情報の保存期間</h2>
+          <p>
+            お問い合わせを通じて取得した個人情報は、利用目的の達成に必要な期間保存し、目的達成後は速やかに削除いたします。ただし、法令により保存が義務付けられている場合は、当該期間保存いたします。
+          </p>
+        </div>
+
+        <!-- 8. Cookie -->
+        <div>
+          <h2 class="text-lg font-bold text-primary mb-3">8. Cookieおよび外部送信について</h2>
+          <p>
+            本サイトでは、Googleフォームを埋め込んでいるページにおいて、Google LLCが提供するCookieが使用される場合があります。
+          </p>
+          <ul class="list-disc pl-5 mt-2 space-y-1">
+            <li><span class="font-medium text-primary">送信先：</span>Google LLC</li>
+            <li><span class="font-medium text-primary">送信される情報：</span>Cookie識別子、閲覧情報</li>
+            <li><span class="font-medium text-primary">利用目的：</span>フォームの正常な動作、不正利用の防止</li>
+          </ul>
+          <p class="mt-2">
+            Cookieの受け入れはお使いのブラウザの設定から拒否することができます。ただし、拒否した場合、フォームが正常に動作しない場合があります。
+          </p>
+        </div>
+
+        <!-- 9. 開示・訂正・利用停止等の請求 -->
+        <div>
+          <h2 class="text-lg font-bold text-primary mb-3">9. 開示・訂正・利用停止等の請求</h2>
+          <p>お客様は、ご自身の個人情報について、以下の請求を行うことができます。</p>
+          <ul class="list-disc pl-5 mt-2 space-y-1">
+            <li>開示の請求（電磁的記録による提供を含む）</li>
+            <li>内容の訂正・追加・削除の請求</li>
+            <li>利用の停止・消去の請求</li>
+            <li>第三者への提供の停止の請求</li>
+          </ul>
+          <p class="mt-2">
+            ご請求の際は、ご本人確認をさせていただいたうえで、速やかに対応いたします。<a href={`${base}/contact`} class="text-accent hover:text-accent-dark transition-colors">お問い合わせページ</a>よりご連絡ください。
+          </p>
+        </div>
+
+        <!-- 10. 免責事項 -->
+        <div>
+          <h2 class="text-lg font-bold text-primary mb-3">10. 免責事項</h2>
+          <p>
+            本サイトから外部サイトへのリンクが設置されている場合、リンク先サイトでの個人情報の取り扱いについて当事業は責任を負いません。各サイトのプライバシーポリシーをご確認ください。
+          </p>
+        </div>
+
+        <!-- 11. 漏えい等発生時の対応 -->
+        <div>
+          <h2 class="text-lg font-bold text-primary mb-3">11. 漏えい等発生時の対応</h2>
+          <p>
+            万が一、個人情報の漏えい等が発生した場合は、速やかに原因を調査し、被害の拡大防止に努めるとともに、影響を受ける可能性のあるお客様への通知および個人情報保護委員会への報告を行います。
+          </p>
+        </div>
+
+        <!-- 12. ポリシーの変更 -->
+        <div>
+          <h2 class="text-lg font-bold text-primary mb-3">12. ポリシーの変更</h2>
+          <p>
+            当事業は、法令の改正やサービス内容の変更に応じて、本ポリシーを改定することがあります。改定後のポリシーは本ページに掲載した時点から効力を生じます。重要な変更がある場合は、本サイト上でお知らせいたします。
+          </p>
+        </div>
+
+        <!-- 13. 苦情・お問い合わせ -->
+        <div>
+          <h2 class="text-lg font-bold text-primary mb-3">13. 個人情報に関する苦情・お問い合わせ</h2>
+          <p>
+            個人情報の取り扱いに関する苦情・ご相談・各種請求は、<a href={`${base}/contact`} class="text-accent hover:text-accent-dark transition-colors">お問い合わせページ</a>よりご連絡ください。
+          </p>
+        </div>
+
+        <!-- 制定日 -->
+        <div class="border-t border-base-dark pt-6">
+          <table class="text-sm">
+            <tbody>
+              <tr><td class="pr-4 py-1 text-text-lighter">制定日</td><td class="py-1">2026年3月1日</td></tr>
+              <tr><td class="pr-4 py-1 text-text-lighter">最終改定日</td><td class="py-1">2026年3月1日</td></tr>
+              <tr><td class="pr-4 py-1 text-text-lighter">事業者</td><td class="py-1">ことひらくAI 代表 秋吉 一輝</td></tr>
+              <tr><td class="pr-4 py-1 text-text-lighter">所在地</td><td class="py-1">香川県仲多度郡琴平町</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</BaseLayout>

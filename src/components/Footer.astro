@@ -14,10 +14,7 @@ const base = import.meta.env.BASE_URL;
           <span class="text-white font-bold text-lg">{siteConfig.name}</span>
         </div>
         <p class="text-sm leading-relaxed">
-          {siteConfig.tagline}
-        </p>
-        <p class="text-sm mt-2">
-          {siteConfig.location}
+          {siteConfig.description}
         </p>
       </div>
 
@@ -59,6 +56,9 @@ const base = import.meta.env.BASE_URL;
     </div>
 
     <div class="border-t border-white/20 mt-8 pt-8 text-center text-sm">
+      <p class="mb-2">
+        <a href={`${base}/privacy`} class="hover:text-accent transition-colors">プライバシーポリシー</a>
+      </p>
       <p>&copy; {new Date().getFullYear()} {siteConfig.name}. All rights reserved.</p>
     </div>
   </div>

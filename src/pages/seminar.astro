@@ -1,0 +1,209 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Lightbox from "../components/Lightbox.astro";
+import { statsHighlights } from "../data/siteConfig";
+
+const base = import.meta.env.BASE_URL;
+const seminarFormUrl = "https://docs.google.com/forms/d/e/1FAIpQLSeaINpgd23L94klsV8RiTAPJ5Xg_Loy4JMHbWcxLO_srrpHQw/viewform";
+
+const testimonials = [
+  { text: "AI活用というと何となく難しいような気がしていましたが、誰でも簡単に利用できることを知り、苦手意識を少し克服することができました。", attribution: "役場職員", avatar: "avatar-staff-female-30.png" },
+  { text: "早速AIを利用させていただいています。今後も上手く業務に活かしていけたらと思います。有意義な研修をありがとうございました。", attribution: "役場職員", avatar: "avatar-staff-male-50.png" },
+  { text: "知識のない私にも少し理解ができて親切な説明でありがたかったです。", attribution: "経理事務", avatar: "avatar-accounting-female-50.png" },
+  { text: "私事では情報収集やAIから提案をもらって大変役立っています。今までの苦労を考えると少し落胆しますが、時短がすごいです。", attribution: "自治会員", avatar: "avatar-female-80.png" },
+  { text: "仕事外の副業を視野に入れられました", attribution: "建設業", avatar: "avatar-foreman-male-40.png" },
+  { text: "初めて参加でしたが皆さんウェルカムモードで楽しく学べました^^ありがとうございました！", attribution: "Webデザイナー", avatar: "avatar-designer-female-40.png" },
+];
+
+const weeklyTopics = [
+  "AIでスライドを作成してみよう！",
+  "AIを使った新時代の情報収集！",
+  "AIで議事録を自動作成してみよう",
+  "AIでSNS文章を生成してみよう",
+  "AIで画像を生成してみよう",
+  "AIでホームページを作ってみよう",
+  "AI副業カタログ",
+  "AI動画デビュー講座",
+  "Discord活用で社内コミュニケーション改善",
+  "はじめてのNFTセミナー",
+  "はじめてのDAOセミナー",
+];
+---
+
+<BaseLayout title="無料AIセミナー" description="琴平町で毎週2回開催の無料AIセミナー。累計339名以上が参加、満足度4.55/5.0。どなたでもお気軽にご参加いただけます。">
+  <!-- ページヘッダー -->
+  <section class="bg-primary py-8 md:py-10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 text-center">
+      <h1 class="text-3xl md:text-4xl font-bold text-white mb-2">無料AIセミナー</h1>
+      <p class="text-white/70 max-w-2xl mx-auto text-sm">
+        「AIって何ができるの？」から始められる、実践型セミナーです
+      </p>
+    </div>
+  </section>
+
+  <!-- セミナー概要（ファーストビュー） -->
+  <section class="py-10 md:py-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col md:flex-row gap-8 md:gap-12 items-start">
+        <!-- 左: チラシ画像 -->
+        <img
+          src={`${base}/images/flyer-seminar.webp`}
+          alt="無料AIセミナーチラシ"
+          class="flyer-thumb rounded-lg shadow-md border border-base-dark cursor-pointer hover:opacity-90 transition-opacity flex-shrink-0 mx-auto md:mx-0"
+          style="width: 450px; height: auto;"
+        />
+        <!-- 右: 概要 + 開催情報 + 申し込み -->
+        <div class="flex-1">
+          <h2 class="text-2xl md:text-3xl font-bold text-primary mb-4">
+            まずは気軽に、体験してみませんか？
+          </h2>
+          <p class="text-text-light leading-relaxed mb-4">
+            「AIに興味はあるけど、何から始めればいいか分からない」という方のための無料セミナーです。
+            2025年5月から琴平町内で毎週開催し、ITリテラシーに関わらずどなたでもご参加いただけます。
+          </p>
+          <p class="text-text-light leading-relaxed mb-6">
+            実際にAIツールを触りながら学ぶ実践型なので、セミナー後すぐにご自身の業務で試せます。
+          </p>
+
+          <!-- 開催情報ブロック -->
+          <div class="bg-white rounded-2xl p-6 border border-base-dark">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mb-5">
+              <div class="bg-base rounded-lg p-3">
+                <div class="text-text-lighter text-xs mb-1">【日時】</div>
+                <div class="text-primary text-sm font-medium">火曜日 13:00〜14:00</div>
+                <div class="text-text-light text-xs">@琴平町総合センター</div>
+                <div class="text-text-lighter text-xs mb-2">※Wi-Fiはありません</div>
+                <div class="text-primary text-sm font-medium">木曜日 18:00〜19:00</div>
+                <div class="text-text-light text-xs">@コトリ コワーキング&ホステル 琴平</div>
+                <div class="text-text-lighter text-xs">※駐車場のご用意はありません</div>
+              </div>
+              <div class="space-y-3">
+                <div class="bg-base rounded-lg p-3">
+                  <div class="text-text-lighter text-xs mb-0.5">参加費</div>
+                  <div class="text-accent text-sm font-bold">無料</div>
+                </div>
+                <div class="bg-base rounded-lg p-3">
+                  <div class="text-text-lighter text-xs mb-0.5">対象</div>
+                  <div class="text-primary text-sm font-medium">琴平町でお仕事をしている方、興味がある方ならどなたでも大歓迎！</div>
+                </div>
+                <div class="bg-base rounded-lg p-3">
+                  <div class="text-text-lighter text-xs mb-0.5">持ち物</div>
+                  <div class="text-primary text-sm font-medium">スマホが使えればOK！</div>
+                </div>
+              </div>
+            </div>
+            <div class="text-center mt-4">
+              <img src={`${base}/images/qr-seminar.png`} alt="セミナー申し込みQRコード" class="mx-auto mb-4" style="width: 168px; height: 168px;" />
+              <a
+                href={seminarFormUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center justify-center bg-accent text-white px-8 py-3 rounded-lg font-medium hover:bg-accent-dark transition-colors"
+              >
+                参加を申し込む
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 実績数値 -->
+  <section class="bg-white py-16 md:py-20">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl md:text-3xl font-bold text-primary mb-10 text-center">セミナー実績</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {statsHighlights.map((stat) => (
+          <div class="text-center">
+            <div class="text-4xl md:text-5xl font-bold text-primary">
+              {stat.number}
+              <span class="text-xl md:text-2xl text-accent">{stat.suffix}</span>
+            </div>
+            <p class="text-text-light mt-2 text-sm">{stat.label}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- セミナーラインナップ -->
+  <section class="py-16 md:py-20">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl md:text-3xl font-bold text-primary mb-10 text-center">セミナーラインナップ</h2>
+
+      <!-- 毎月第1週（固定） -->
+      <div class="bg-white rounded-2xl p-6 md:p-8 border border-accent/30 mb-8">
+        <div class="flex items-center gap-3 mb-2">
+          <span class="bg-accent text-white text-xs font-bold px-3 py-1 rounded-full">毎月第1週</span>
+          <span class="text-text-lighter text-xs">※ 固定開催</span>
+        </div>
+        <h3 class="font-bold text-primary text-lg">初心者向けAIセミナー</h3>
+        <p class="text-text-light text-sm mt-1">AIが初めての方はここからどうぞ。基本操作から丁寧にお伝えします。</p>
+      </div>
+
+      <!-- 第2週以降（週替わり） -->
+      <div class="bg-white rounded-2xl p-6 md:p-8 border border-primary/15">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="bg-primary text-white text-xs font-bold px-3 py-1 rounded-full">第2週以降</span>
+          <span class="text-text-lighter text-xs">週替わりテーマ</span>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+          {weeklyTopics.map((topic) => (
+            <div class="bg-base rounded-lg px-4 py-3 text-sm text-primary">
+              {topic}
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 受講者の声 -->
+  <section class="bg-white py-16 md:py-20">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl md:text-3xl font-bold text-primary mb-10 text-center">受講者の声</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {testimonials.map((item) => (
+          <div class="bg-white rounded-xl p-6 border border-base-dark flex gap-4">
+            <div class="flex flex-col items-center flex-shrink-0">
+              <img
+                src={`${base}/images/${item.avatar}`}
+                alt={item.attribution}
+                class="rounded-full object-cover"
+                style="width: 64px; height: 64px;"
+              />
+              <span class="text-text-lighter text-xs mt-1">{item.attribution}</span>
+            </div>
+            <p class="text-text-light leading-relaxed text-sm flex-1">「{item.text}」</p>
+          </div>
+        ))}
+      </div>
+      <p class="text-center text-text-lighter text-xs mt-6">
+        ※ Googleフォームのアンケートより抜粋
+      </p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-accent py-8 md:py-10">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
+        まずはセミナーで体験してみませんか？
+      </h2>
+      <p class="text-white/80 mb-8 max-w-2xl mx-auto">
+        参加費は無料。AI未経験でも大丈夫です。お気軽にお申し込みください。
+      </p>
+      <a
+        href={seminarFormUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center justify-center bg-primary text-white px-8 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors"
+      >
+        セミナーに申し込む
+      </a>
+    </div>
+  </section>
+
+  <Lightbox />
+</BaseLayout>

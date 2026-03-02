@@ -1,54 +1,131 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { siteConfig, statsHighlights, services } from "../data/siteConfig";
+import { siteConfig, statsHighlights, mediaAppearances } from "../data/siteConfig";
 
 const base = import.meta.env.BASE_URL;
+
+const beforeAfter = [
+  { task: "メール作成", before: "30分", after: "5分" },
+  { task: "議事録作成", before: "90分", after: "15分" },
+  { task: "資料作成", before: "3時間", after: "1時間" },
+];
+
+const painPoints = [
+  {
+    title: "閉店後にパソコン作業が待っている",
+    description:
+      "メール返信、帳簿、SNS更新…本業が終わってからが「もう一仕事」",
+  },
+  {
+    title: "「AIがいい」と聞くけど、何から始めればいいか分からない",
+    description:
+      "調べても情報が多すぎる。自社にどう使えるか見当がつかない",
+  },
+  {
+    title: "大手に相談したら、見積もりが数十万だった",
+    description: "自分たちの規模に合うサービスが見つからない",
+  },
+];
+
+const steps = [
+  {
+    number: "1",
+    title: "無料相談",
+    description: "現在のお悩み・業務の状況をお聞きします（30分〜60分）",
+  },
+  {
+    number: "2",
+    title: "ご提案",
+    description: "業務に合ったAI活用プランをご提案します",
+  },
+  {
+    number: "3",
+    title: "スタート",
+    description:
+      "ご納得いただけたらサービス開始。合わなければお断りいただいてOKです",
+  },
+];
+
+const majorMedia = mediaAppearances.filter((m) =>
+  ["NHK香川 NEWS WEB", "日本経済新聞", "四国新聞", "RSK山陽放送", "時事通信社", "KSB瀬戸内海放送"].includes(m.name)
+);
 ---
 
 <BaseLayout>
-  <!-- Hero セクション -->
+  <!-- セクション1: ヒーロー -->
   <section class="relative bg-primary text-white overflow-hidden">
-    <!-- 背景装飾 -->
     <div class="absolute inset-0 opacity-10">
       <div class="absolute top-10 right-10 w-64 h-64 bg-accent rounded-full blur-3xl"></div>
       <div class="absolute bottom-10 left-10 w-48 h-48 bg-accent rounded-full blur-3xl"></div>
     </div>
 
-    <div class="relative max-w-6xl mx-auto px-4 sm:px-6 py-20 md:py-32">
-      <div class="max-w-3xl">
-        <p class="text-accent font-medium text-sm md:text-base mb-4">
-          香川県琴平町 × AI活用支援
-        </p>
-        <h1 class="text-3xl md:text-5xl font-bold leading-tight mb-6">
-          琴平を<br class="md:hidden" />
-          <span class="text-accent">"少人数でも回る町"</span>へ
-        </h1>
-        <p class="text-white/80 text-base md:text-lg leading-relaxed mb-8 max-w-2xl">
-          対面×短距離で「すぐ効くAI」を届ける。<br />
-          {siteConfig.philosophy}。
-        </p>
-        <div class="flex flex-col sm:flex-row gap-4">
-          <a
-            href={`${base}/contact`}
-            class="inline-flex items-center justify-center bg-accent text-white px-8 py-3 rounded-lg font-medium hover:bg-accent-dark transition-colors text-base"
-          >
-            お問い合わせ
-          </a>
-          <a
-            href={`${base}/services`}
-            class="inline-flex items-center justify-center border border-white/30 text-white px-8 py-3 rounded-lg font-medium hover:bg-white/10 transition-colors text-base"
-          >
-            サービスを見る
-          </a>
+    <div class="relative max-w-6xl mx-auto px-4 sm:px-6 py-16 md:py-24">
+      <div class="flex flex-col md:flex-row md:items-center gap-10 md:gap-12">
+        <div class="md:w-1/2">
+          <h1 class="text-3xl md:text-5xl font-bold leading-tight mb-8">
+            最後に丸一日休めたの、<br />いつでしたか。
+          </h1>
+
+          <!-- Before/After テーブル -->
+          <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 mb-8">
+            <table class="w-full text-sm md:text-base">
+              <thead>
+                <tr class="text-accent text-left">
+                  <th class="pb-2 font-medium">業務</th>
+                  <th class="pb-2 font-medium">Before</th>
+                  <th class="pb-2 font-medium">After</th>
+                </tr>
+              </thead>
+              <tbody>
+                {beforeAfter.map((row) => (
+                  <tr class="border-t border-white/10">
+                    <td class="py-2 text-white/90">{row.task}</td>
+                    <td class="py-2 text-white/50">{row.before}</td>
+                    <td class="py-2 text-accent font-bold">{row.after}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <p class="text-white/80 text-base md:text-lg leading-relaxed mb-8">
+            「うちの規模でも使えるの？」——使えます。<br />
+            対面で一緒に始めましょう。
+          </p>
+
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a
+              href={`${base}/contact`}
+              class="inline-flex items-center justify-center bg-accent text-white px-8 py-3 rounded-lg font-medium hover:bg-accent-dark transition-colors text-base"
+            >
+              無料で相談する
+            </a>
+            <a
+              href="#services"
+              class="inline-flex items-center justify-center border border-white/30 text-white px-8 py-3 rounded-lg font-medium hover:bg-white/10 transition-colors text-base"
+            >
+              サービスを見る
+            </a>
+          </div>
+        </div>
+
+        <div class="md:w-1/2">
+          <div class="bg-white rounded-xl p-2 shadow-lg">
+            <img
+              src={`${base}/images/hero-before-after.webp`}
+              alt="Before: 夜遅くまで一人で事務作業に追われる経営者。After: AIコンサルタントと一緒に、整理されたデスクで効率的に学ぶ姿。"
+              class="rounded-lg w-full"
+            />
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 実績ハイライト -->
+  <!-- セクション2: 実績カード + メディアバナー -->
   <section class="bg-white py-16 md:py-20">
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
         {statsHighlights.map((stat) => (
           <div class="text-center">
             <div class="text-4xl md:text-5xl font-bold text-primary">
@@ -59,59 +136,195 @@ const base = import.meta.env.BASE_URL;
           </div>
         ))}
       </div>
+
+      <!-- メディア掲載バナー -->
+      <div class="border-t border-base-dark pt-8">
+        <p class="text-center text-text-lighter text-xs mb-4">代表のメディア掲載実績</p>
+        <div class="flex flex-wrap justify-center items-center gap-x-8 gap-y-3">
+          {majorMedia.map((media) => (
+            <span class="text-text-light text-sm font-medium">{media.name}</span>
+          ))}
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- サービス概要 -->
+  <!-- セクション3: 課題共感 -->
   <section class="py-16 md:py-24">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6">
-      <div class="text-center mb-12">
-        <h2 class="text-2xl md:text-3xl font-bold text-primary">サービス</h2>
-        <p class="text-text-light mt-3 max-w-2xl mx-auto">
-          お客様の課題に合わせた3つのサポートメニューをご用意しています
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="text-xl md:text-2xl font-bold text-primary text-center mb-12 leading-relaxed">
+        「AIなんて、うちみたいな店には関係ない」<br />
+        <span class="text-accent">——本当にそうですか？</span>
+      </h2>
+
+      <div class="space-y-6">
+        {painPoints.map((point) => (
+          <div class="bg-white rounded-xl p-6 shadow-sm border border-base-dark">
+            <h3 class="font-bold text-primary mb-2">{point.title}</h3>
+            <p class="text-text-light text-sm leading-relaxed">
+              {point.description}
+            </p>
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-10 text-center">
+        <p class="text-text leading-relaxed">
+          ひとつでも当てはまったら、まずはお話を聞かせてください。
         </p>
+        <p class="text-primary font-bold mt-2">
+          必要なのは、大きな予算ではなく、隣で教えてくれる人です。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- セクション4: サービス紹介 -->
+  <section id="services" class="bg-white py-16 md:py-24">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-2xl md:text-3xl font-bold text-primary">
+          「隣で教えてくれる人」、2つのかたち
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- AI導入サブスク -->
+        <a
+          href={`${base}/services#subscription`}
+          class="group relative block bg-base rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow border border-base-dark"
+        >
+          <div class="absolute -top-3 left-6">
+            <span class="bg-accent text-white text-xs font-bold px-3 py-1 rounded-full">
+              おすすめ
+            </span>
+          </div>
+          <div class="text-3xl mb-3">💬</div>
+          <h3 class="text-lg font-bold text-primary mb-2 group-hover:text-accent transition-colors">
+            AI導入サブスク
+          </h3>
+          <p class="text-text-lighter text-xs mb-3">業務全体を見直したい方</p>
+          <p class="text-text-light text-sm leading-relaxed mb-4">
+            月1〜2回の訪問 + Discordでの常時相談。業務の棚卸しからAI活用の定着まで伴走します。AIの最新トレンドや活用事例も随時お届けします。
+          </p>
+          <div class="text-primary font-bold text-lg mb-4">
+            月額 100,000円<span class="text-sm font-normal text-text-light">〜</span>
+          </div>
+          <div class="text-accent text-sm font-medium">
+            サブスクの詳細を見る →
+          </div>
+        </a>
+
+        <!-- 実務プロンプト講座 -->
+        <a
+          href={`${base}/services#workshop`}
+          class="group block bg-base rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow border border-base-dark"
+        >
+          <div class="text-3xl mb-3 mt-4">📝</div>
+          <h3 class="text-lg font-bold text-primary mb-2 group-hover:text-accent transition-colors">
+            実務プロンプト講座
+          </h3>
+          <p class="text-text-lighter text-xs mb-3">
+            特定の業務をAIで効率化したい方、一連の業務をAIに任せたい方
+          </p>
+          <p class="text-text-light text-sm leading-relaxed mb-4">
+            最大3名の少人数制。自分の業務に使えるプロンプトを一緒に作って持ち帰れます。
+          </p>
+          <div class="text-primary font-bold text-lg mb-4">
+            20,000円<span class="text-sm font-normal text-text-light"> / 回（約2時間）</span>
+          </div>
+          <div class="text-accent text-sm font-medium">
+            講座の詳細を見る →
+          </div>
+        </a>
+      </div>
+
+      <!-- おたすけサポート補足リンク -->
+      <div class="text-center mt-8">
+        <a
+          href={`${base}/services#support`}
+          class="text-text-light text-sm hover:text-accent transition-colors"
+        >
+          パソコン・AIのちょっとした困りごとは →
+          <span class="underline">おたすけサポート</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- セクション5: 導入の流れ -->
+  <section class="py-16 md:py-24">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-2xl md:text-3xl font-bold text-primary">
+          まずは、お話を聞かせてください
+        </h2>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {services.map((service) => (
-          <a
-            href={`${base}/services#${service.id}`}
-            class="group block bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow border border-base-dark"
-          >
-            <div class="text-4xl mb-4">{service.icon}</div>
-            <div class="text-xs font-medium text-accent mb-1">
-              {service.subtitle}
+        {steps.map((step) => (
+          <div class="text-center">
+            <div class="w-12 h-12 bg-accent text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">
+              {step.number}
             </div>
-            <h3 class="text-lg font-bold text-primary mb-3 group-hover:text-accent transition-colors">
-              {service.title}
-            </h3>
+            <h3 class="font-bold text-primary mb-2">{step.title}</h3>
             <p class="text-text-light text-sm leading-relaxed">
-              {service.description}
+              {step.description}
             </p>
-            <div class="mt-4 text-accent text-sm font-medium">
-              詳しく見る →
-            </div>
-          </a>
+          </div>
         ))}
+      </div>
+
+      <p class="text-center mt-10 text-accent font-bold">
+        初回相談は無料です。お気軽にどうぞ。
+      </p>
+    </div>
+  </section>
+
+  <!-- セクション6: 代表者プロフィール -->
+  <section class="bg-white py-16 md:py-24">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+        <!-- プロフィール写真プレースホルダー -->
+        <img
+          src={`${base}/images/profile-photo.webp`}
+          alt="秋吉一輝（あっきー）"
+          class="w-40 h-40 md:w-48 md:h-48 rounded-full object-cover flex-shrink-0"
+        />
+
+        <div>
+          <p class="text-text-lighter text-xs mb-1">ことひらくAI 代表・琴平町地域おこし協力隊</p>
+          <h3 class="text-xl md:text-2xl font-bold text-primary mb-4">
+            秋吉 一輝<span class="text-base font-normal text-text-light ml-2">（あっきー）</span>
+          </h3>
+          <p class="text-text-light text-sm leading-relaxed mb-4">
+            モットーは「難しいことを、わかりやすく」。週2回の無料AIセミナーを10ヶ月以上続けながら、皆さんの「ちょっと聞きたい」に応えられる存在を目指しています。
+          </p>
+          <a
+            href={`${base}/profile`}
+            class="text-accent text-sm font-medium hover:text-accent-dark transition-colors"
+          >
+            詳しいプロフィールを見る →
+          </a>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA セクション -->
-  <section class="bg-primary py-16 md:py-20">
+  <!-- セクション7: CTA -->
+  <section class="bg-accent py-8 md:py-10">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
       <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
-        AIで業務を変えてみませんか？
+        まずは気軽にご相談ください
       </h2>
-      <p class="text-white/70 mb-8 max-w-2xl mx-auto">
-        「AIって何ができるの？」というところから丁寧にサポートします。<br />
-        初回のご相談は無料です。お気軽にお問い合わせください。
+      <p class="text-white/80 mb-8 max-w-2xl mx-auto">
+        30分の無料相談で、あなたの業務にAIが使えるかどうかをお伝えします。
       </p>
       <a
         href={`${base}/contact`}
-        class="inline-flex items-center justify-center bg-accent text-white px-8 py-3 rounded-lg font-medium hover:bg-accent-dark transition-colors text-base"
+        class="inline-flex items-center justify-center bg-primary text-white px-8 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors text-base"
       >
-        無料相談はこちら
+        無料で相談する
       </a>
     </div>
   </section>
