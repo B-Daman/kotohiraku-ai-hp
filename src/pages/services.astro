@@ -49,7 +49,8 @@ const support = services[2];
   <!-- サービス①: AI導入サブスク -->
   <section id="subscription" class="bg-white py-16 md:py-24">
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
-      <div class="mb-12">
+      <!-- ヘッダー -->
+      <div class="mb-8">
         <div class="flex items-center gap-3 mb-2">
           <span class="text-3xl">💬</span>
           <span class="text-xs font-medium text-accent bg-accent/10 px-3 py-1 rounded-full">{subscription.target}</span>
@@ -60,60 +61,54 @@ const support = services[2];
         </p>
       </div>
 
-      <!-- メインプラン（3枚） -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-        {subscription.plans?.map((plan) => (
-          <div class:list={[
-            "rounded-2xl p-6 border-2 transition-shadow",
-            plan.recommended
-              ? "border-accent shadow-lg bg-base relative"
-              : "border-base-dark bg-base hover:shadow-md",
-          ]}>
-            {plan.recommended && (
-              <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-accent text-white text-xs font-medium px-4 py-1 rounded-full">
-                おすすめ
-              </div>
-            )}
-            <h3 class="text-lg font-bold text-primary mb-2">{plan.name}</h3>
-            <div class="mb-4">
-              <span class="text-2xl font-bold text-primary">{plan.price}</span>
-              <span class="text-text-light text-sm">{plan.period}</span>
-            </div>
-            <ul class="space-y-2">
-              {plan.features.map((feature) => (
-                <li class="flex items-start gap-2 text-sm text-text-light">
-                  <span class="text-accent mt-0.5">✓</span>
-                  <span>{feature}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
-      </div>
+      <!-- 説明（左）+ プラン一覧（右） -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+        <!-- 左: イメージ画像 -->
+        <img
+          src={`${base}/images/service-subscription-web.png`}
+          alt="AI導入サブスクのイメージ：コンサルタントと経営者が一緒にPC画面を見ながらAI業務フローを設計している様子"
+          class="w-full rounded-xl"
+        />
 
-      <!-- ライトプラン（別枠） -->
-      <div class="border border-base-dark rounded-xl p-6 bg-base">
-        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-          <div>
-            <div class="flex items-center gap-2 mb-1">
-              <h3 class="font-bold text-primary">{subscription.lightPlan.name}</h3>
-              <span class="text-xs text-text-lighter bg-base-dark px-2 py-0.5 rounded">
-                {subscription.lightPlan.note}
-              </span>
-            </div>
-            <ul class="flex flex-wrap gap-4 text-sm text-text-light">
-              {subscription.lightPlan.features.map((feature) => (
-                <li class="flex items-center gap-1">
-                  <span class="text-accent">✓</span>
-                  <span>{feature}</span>
-                </li>
-              ))}
-            </ul>
+        <!-- 右: プラン + CTA -->
+        <div>
+          <div class="space-y-3 mb-6">
+            {subscription.plans?.map((plan) => (
+              <div class:list={[
+                "rounded-xl p-4 border-2",
+                plan.recommended
+                  ? "border-accent bg-base relative"
+                  : "border-base-dark bg-base",
+              ]}>
+                {plan.recommended && (
+                  <span class="absolute -top-2.5 right-4 bg-accent text-white text-[10px] font-medium px-3 py-0.5 rounded-full">
+                    おすすめ
+                  </span>
+                )}
+                <div class="flex items-baseline justify-between">
+                  <h3 class="text-sm font-bold text-primary">{plan.name}</h3>
+                  <div>
+                    <span class="text-lg font-bold text-primary">{plan.price}</span>
+                    <span class="text-text-light text-xs">{plan.period}</span>
+                  </div>
+                </div>
+                <ul class="flex flex-wrap gap-x-4 gap-y-1 mt-2">
+                  {plan.features.map((feature) => (
+                    <li class="flex items-center gap-1 text-xs text-text-light">
+                      <span class="text-accent">✓</span>
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
-          <div class="text-right flex-shrink-0">
-            <span class="text-xl font-bold text-primary">{subscription.lightPlan.price}</span>
-            <span class="text-text-light text-sm">{subscription.lightPlan.period}</span>
-          </div>
+          <a
+            href={`${base}/contact`}
+            class="inline-flex items-center justify-center w-full bg-accent text-white px-8 py-3 rounded-lg font-medium hover:bg-accent-dark transition-colors"
+          >
+            無料で相談する
+          </a>
         </div>
       </div>
     </div>
@@ -122,17 +117,36 @@ const support = services[2];
   <!-- サービス②: 実務プロンプト講座 -->
   <section id="workshop" class="py-16 md:py-24">
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
-      <div class="grid grid-cols-1 md:grid-cols-[1fr_auto_auto] gap-8 items-center">
+      <!-- ヘッダー -->
+      <div class="mb-8">
+        <div class="flex items-center gap-3 mb-2">
+          <span class="text-3xl">📝</span>
+          <span class="text-xs font-medium text-accent bg-accent/10 px-3 py-1 rounded-full">{workshop.target}</span>
+        </div>
+        <h2 class="text-2xl md:text-3xl font-bold text-primary mb-4">{workshop.title}</h2>
+        <p class="text-text-light max-w-3xl">
+          最大3名の少人数制。自分の業務に使えるプロンプトを一緒に作って持ち帰れます。
+        </p>
+      </div>
+
+      <!-- 画像+チラシ（左）+ 詳細（右） -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+        <!-- 左: イメージ画像 + チラシ -->
         <div>
-          <div class="flex items-center gap-3 mb-2">
-            <span class="text-3xl">📝</span>
-            <span class="text-xs font-medium text-accent bg-accent/10 px-3 py-1 rounded-full">{workshop.target}</span>
+          <img
+            src={`${base}/images/service-prompt-course-web.png`}
+            alt="実務プロンプト講座のイメージ：講師がプロジェクター画面の横で説明し、受講者がPCで実践している様子"
+            class="w-full rounded-xl mb-4"
+          />
+          <div class="flex gap-3 justify-center">
+            <img src={`${base}/images/flyer-workshop-front.webp`} alt="実務プロンプト講座チラシ 表面" class="flyer-thumb w-36 rounded-lg shadow-sm border border-base-dark cursor-pointer hover:opacity-80 transition-opacity" />
+            <img src={`${base}/images/flyer-workshop-back.webp`} alt="実務プロンプト講座チラシ 裏面" class="flyer-thumb w-36 rounded-lg shadow-sm border border-base-dark cursor-pointer hover:opacity-80 transition-opacity" />
           </div>
-          <h2 class="text-2xl md:text-3xl font-bold text-primary mb-4">{workshop.title}</h2>
-          <p class="text-text-light mb-4">
-            {workshop.description}
-          </p>
-          <ul class="space-y-2 text-sm text-text-light mb-4">
+        </div>
+
+        <!-- 右: 詳細 + CTA -->
+        <div>
+          <ul class="space-y-2 text-sm text-text-light mb-6">
             <li class="flex items-start gap-2">
               <span class="text-accent mt-0.5">✓</span>
               <span>業務課題に合わせたカスタマイズ内容</span>
@@ -146,24 +160,17 @@ const support = services[2];
               <span>少人数制で質問しやすい環境</span>
             </li>
           </ul>
-          <div class="flex items-baseline gap-2 mb-4">
+          <div class="flex items-baseline gap-2 mb-6">
             <span class="text-2xl font-bold text-primary">{workshop.pricing.price}</span>
             <span class="text-text-light text-sm">{workshop.pricing.unit}</span>
           </div>
           <a
             href={`${base}/contact`}
-            class="inline-flex items-center justify-center bg-accent text-white px-6 py-2.5 rounded-lg text-sm font-medium hover:bg-accent-dark transition-colors"
+            class="inline-flex items-center justify-center w-full bg-accent text-white px-6 py-3 rounded-lg font-medium hover:bg-accent-dark transition-colors"
           >
             講座を申し込む
           </a>
         </div>
-        <img src={`${base}/images/flyer-workshop-front.webp`} alt="実務プロンプト講座チラシ 表面" class="flyer-thumb hidden md:block w-64 rounded-lg shadow-sm border border-base-dark cursor-pointer hover:opacity-80 transition-opacity" />
-        <img src={`${base}/images/flyer-workshop-back.webp`} alt="実務プロンプト講座チラシ 裏面" class="flyer-thumb hidden md:block w-64 rounded-lg shadow-sm border border-base-dark cursor-pointer hover:opacity-80 transition-opacity" />
-      </div>
-      <!-- モバイル用チラシサムネイル -->
-      <div class="flex gap-4 mt-6 md:hidden">
-        <img src={`${base}/images/flyer-workshop-front.webp`} alt="実務プロンプト講座チラシ 表面" class="flyer-thumb w-44 rounded-lg shadow-sm border border-base-dark cursor-pointer hover:opacity-80 transition-opacity" />
-        <img src={`${base}/images/flyer-workshop-back.webp`} alt="実務プロンプト講座チラシ 裏面" class="flyer-thumb w-44 rounded-lg shadow-sm border border-base-dark cursor-pointer hover:opacity-80 transition-opacity" />
       </div>
     </div>
   </section>
@@ -171,19 +178,36 @@ const support = services[2];
   <!-- サービス③: おたすけサポート -->
   <section id="support" class="bg-white py-16 md:py-24">
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
-      <div class="grid grid-cols-1 md:grid-cols-[auto_auto_1fr] gap-8 items-center">
-        <img src={`${base}/images/flyer-support-front.webp`} alt="おたすけサポートチラシ 表面" class="flyer-thumb hidden md:block w-64 rounded-lg shadow-sm border border-base-dark cursor-pointer hover:opacity-80 transition-opacity" />
-        <img src={`${base}/images/flyer-support-back.webp`} alt="おたすけサポートチラシ 裏面" class="flyer-thumb hidden md:block w-64 rounded-lg shadow-sm border border-base-dark cursor-pointer hover:opacity-80 transition-opacity" />
+      <!-- ヘッダー -->
+      <div class="mb-8">
+        <div class="flex items-center gap-3 mb-2">
+          <span class="text-3xl">🚲</span>
+          <span class="text-xs font-medium text-accent bg-accent/10 px-3 py-1 rounded-full">{support.target}</span>
+        </div>
+        <h2 class="text-2xl md:text-3xl font-bold text-primary mb-4">{support.title}</h2>
+        <p class="text-text-light max-w-3xl">
+          {support.description}
+        </p>
+      </div>
+
+      <!-- 画像+チラシ（左）+ 詳細（右） -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+        <!-- 左: イメージ画像 + チラシ -->
         <div>
-          <div class="flex items-center gap-3 mb-2">
-            <span class="text-3xl">🚲</span>
-            <span class="text-xs font-medium text-accent bg-accent/10 px-3 py-1 rounded-full">{support.target}</span>
+          <img
+            src={`${base}/images/service-support-web.png`}
+            alt="おたすけサポートのイメージ：おばあさんの自宅でパソコンの使い方を一緒に解決している様子"
+            class="w-full rounded-xl mb-4"
+          />
+          <div class="flex gap-3 justify-center">
+            <img src={`${base}/images/flyer-support-front.webp`} alt="おたすけサポートチラシ 表面" class="flyer-thumb w-36 rounded-lg shadow-sm border border-base-dark cursor-pointer hover:opacity-80 transition-opacity" />
+            <img src={`${base}/images/flyer-support-back.webp`} alt="おたすけサポートチラシ 裏面" class="flyer-thumb w-36 rounded-lg shadow-sm border border-base-dark cursor-pointer hover:opacity-80 transition-opacity" />
           </div>
-          <h2 class="text-2xl md:text-3xl font-bold text-primary mb-4">{support.title}</h2>
-          <p class="text-text-light mb-4">
-            {support.description}
-          </p>
-          <ul class="space-y-2 text-sm text-text-light mb-4">
+        </div>
+
+        <!-- 右: 詳細 + CTA -->
+        <div>
+          <ul class="space-y-2 text-sm text-text-light mb-6">
             <li class="flex items-start gap-2">
               <span class="text-accent mt-0.5">✓</span>
               <span>プリンター・Wi-Fi接続サポート</span>
@@ -197,94 +221,77 @@ const support = services[2];
               <span>パソコン・スマホの基本操作支援</span>
             </li>
           </ul>
-          <div class="flex flex-wrap items-baseline gap-4 mb-4 text-sm">
+          <div class="flex flex-wrap items-baseline gap-4 mb-6 text-sm">
             <span class="font-bold text-primary text-lg">¥5,000<span class="text-sm text-text-light font-normal"> / 60分</span></span>
             <span class="text-text-light">延長 ¥2,500 / 30分</span>
-            <span class="text-text-light">琴平町内（自転車20分圏）</span>
           </div>
+          <p class="text-text-lighter text-xs mb-4">琴平町内（自転車20分圏）</p>
           <a
             href={`${base}/contact`}
-            class="inline-flex items-center justify-center bg-accent text-white px-6 py-2.5 rounded-lg text-sm font-medium hover:bg-accent-dark transition-colors"
+            class="inline-flex items-center justify-center w-full bg-accent text-white px-6 py-3 rounded-lg font-medium hover:bg-accent-dark transition-colors"
           >
             サポートを依頼する
           </a>
         </div>
-      </div>
-      <!-- モバイル用チラシサムネイル -->
-      <div class="flex gap-4 mt-6 md:hidden">
-        <img src={`${base}/images/flyer-support-front.webp`} alt="おたすけサポートチラシ 表面" class="flyer-thumb w-44 rounded-lg shadow-sm border border-base-dark cursor-pointer hover:opacity-80 transition-opacity" />
-        <img src={`${base}/images/flyer-support-back.webp`} alt="おたすけサポートチラシ 裏面" class="flyer-thumb w-44 rounded-lg shadow-sm border border-base-dark cursor-pointer hover:opacity-80 transition-opacity" />
       </div>
     </div>
   </section>
 
   <!-- ことひらくAIラボ（コミュニティ） -->
   <section id="community" class="py-16 md:py-24">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6">
-      <div class="bg-white rounded-2xl p-8 md:p-12 border border-accent/20 shadow-sm">
-        <div class="text-center mb-8">
-          <span class="text-3xl mb-3 block">🎓</span>
-          <h2 class="text-2xl md:text-3xl font-bold text-primary mb-3">ことひらくAIラボ</h2>
-          <p class="text-text-light max-w-2xl mx-auto">
-            「ChatGPT、触ってみたけど…その先がわからない」<br />
-            セミナーで学んだその先を、あっきーと仲間と一緒に。
-          </p>
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <!-- ヘッダー -->
+      <div class="mb-8">
+        <div class="flex items-center gap-3 mb-2">
+          <span class="text-3xl">🎓</span>
+          <span class="text-xs font-medium text-accent bg-accent/10 px-3 py-1 rounded-full">AIに興味がある方へ</span>
         </div>
+        <h2 class="text-2xl md:text-3xl font-bold text-primary mb-4">ことひらくAIラボ</h2>
+        <p class="text-text-light max-w-3xl">
+          「ChatGPT、触ってみたけど…その先がわからない」――セミナーで学んだその先を、あっきーと仲間と一緒に。
+        </p>
+      </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-          <div>
-            <h3 class="font-bold text-primary mb-3">AIラボでできること</h3>
-            <ul class="space-y-2 text-sm text-text-light">
-              <li class="flex items-start gap-2">
-                <span class="text-accent mt-0.5">✓</span>
-                <span>月1回のAI勉強会（2時間）＋アーカイブ視聴</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-accent mt-0.5">✓</span>
-                <span>AIに関する質問・相談</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-accent mt-0.5">✓</span>
-                <span>最新AI情報の共有</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-accent mt-0.5">✓</span>
-                <span>メンバー同士の情報交換</span>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h3 class="font-bold text-primary mb-3">こんな方におすすめ</h3>
-            <ul class="space-y-2 text-sm text-text-light">
-              <li class="flex items-start gap-2">
-                <span class="text-accent mt-0.5">―</span>
-                <span>セミナーの後も学び続けたい</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-accent mt-0.5">―</span>
-                <span>AIの最新情報をゆるく追いたい</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-accent mt-0.5">―</span>
-                <span>気軽にAIの相談ができる場がほしい</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-accent mt-0.5">―</span>
-                <span>あっきーの活動を応援したい</span>
-              </li>
-            </ul>
-          </div>
-        </div>
+      <!-- 画像（左）+ 詳細（右） -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+        <!-- 左: イメージ画像 -->
+        <img
+          src={`${base}/images/service-ai-lab-web.png`}
+          alt="ことひらくAIラボのイメージ：Discordを通じてオンラインでつながった参加者たちがAIについて学び合っている様子"
+          class="w-full rounded-xl"
+        />
 
-        <div class="text-center">
-          <div class="mb-4">
+        <!-- 右: 詳細 + CTA -->
+        <div>
+          <h3 class="font-bold text-primary mb-3 text-sm">AIラボでできること</h3>
+          <ul class="space-y-2 text-sm text-text-light mb-6">
+            <li class="flex items-start gap-2">
+              <span class="text-accent mt-0.5">✓</span>
+              <span>月1回のAI勉強会（2時間）＋アーカイブ視聴</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-accent mt-0.5">✓</span>
+              <span>AIに関する質問・相談</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-accent mt-0.5">✓</span>
+              <span>最新AI情報の共有</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-accent mt-0.5">✓</span>
+              <span>メンバー同士の情報交換</span>
+            </li>
+          </ul>
+          <div class="mb-2">
             <span class="text-2xl font-bold text-primary">月額 ¥1,000</span>
-            <span class="text-text-light text-sm ml-2">Discordで運営・全国どこからでも参加OK</span>
+            <span class="text-text-light text-sm ml-2">Discordで運営</span>
           </div>
-          <p class="text-text-lighter text-xs mb-4">※ 初月無料でお試しいただけます</p>
+          <p class="text-text-lighter text-xs mb-6">※ 30日間無料でお試しいただけます</p>
           <a
-            href={`${base}/contact`}
-            class="inline-flex items-center justify-center bg-accent text-white px-8 py-3 rounded-lg font-medium hover:bg-accent-dark transition-colors"
+            href="https://page.theapps.jp/paid/join/B8hv3G40M25l69n5"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center w-full bg-accent text-white px-8 py-3 rounded-lg font-medium hover:bg-accent-dark transition-colors"
           >
             AIラボに参加する
           </a>

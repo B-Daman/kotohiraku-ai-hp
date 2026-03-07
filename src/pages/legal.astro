@@ -1,0 +1,215 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout title="特定商取引法に基づく表記" description="ことひらくAIの特定商取引法に基づく表記です。">
+  <!-- ページヘッダー -->
+  <section class="bg-primary py-8 md:py-10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 text-center">
+      <h1 class="text-3xl md:text-4xl font-bold text-white">特定商取引法に基づく表記</h1>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-20">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <div class="space-y-10 text-text-light text-sm leading-relaxed">
+
+        <!-- 事業者情報 -->
+        <div>
+          <h2 class="text-lg font-bold text-primary mb-3">事業者情報</h2>
+          <table class="text-sm w-full">
+            <tbody>
+              <tr class="border-b border-base-dark">
+                <td class="pr-4 py-3 text-text-lighter w-1/3">事業者名</td>
+                <td class="py-3">ことひらくAI</td>
+              </tr>
+              <tr class="border-b border-base-dark">
+                <td class="pr-4 py-3 text-text-lighter">代表者</td>
+                <td class="py-3">秋吉 一輝</td>
+              </tr>
+              <tr class="border-b border-base-dark">
+                <td class="pr-4 py-3 text-text-lighter">所在地</td>
+                <td class="py-3">請求があった場合、遅滞なく開示いたします</td>
+              </tr>
+              <tr class="border-b border-base-dark">
+                <td class="pr-4 py-3 text-text-lighter">電話番号</td>
+                <td class="py-3">請求があった場合、遅滞なく開示いたします</td>
+              </tr>
+              <tr class="border-b border-base-dark">
+                <td class="pr-4 py-3 text-text-lighter">メールアドレス</td>
+                <td class="py-3">akkeynft@gmail.com</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="mt-2 text-xs text-text-lighter">※ 所在地・電話番号の開示をご希望の方は、上記メールアドレスまたは<a href={`${base}/contact`} class="text-accent hover:text-accent-dark transition-colors">お問い合わせページ</a>よりご連絡ください。</p>
+        </div>
+
+        <!-- 販売価格 -->
+        <div>
+          <h2 class="text-lg font-bold text-primary mb-3">販売価格</h2>
+          <p class="mb-3">各サービスの価格は以下の通りです（税込表示）。</p>
+          <table class="text-sm w-full">
+            <tbody>
+              <tr class="border-b border-base-dark">
+                <td class="pr-4 py-3 text-text-lighter w-1/3">ことひらくAIラボ</td>
+                <td class="py-3">月額 ¥1,000（税込）・1か月単位の自動更新</td>
+              </tr>
+              <tr class="border-b border-base-dark">
+                <td class="pr-4 py-3 text-text-lighter">実務プロンプト講座</td>
+                <td class="py-3">¥20,000（税込）/ 1回（約2時間）</td>
+              </tr>
+              <tr class="border-b border-base-dark">
+                <td class="pr-4 py-3 text-text-lighter align-top">AI導入サブスク</td>
+                <td class="py-3">
+                  スタンダード: 月額 ¥70,000（税込）<br />
+                  プレミアム: 月額 ¥100,000（税込）<br />
+                  カスタム: 月額 ¥150,000〜（税込・個別見積もり）<br />
+                  いずれも1か月単位の自動更新<br />
+                  <span class="text-text-lighter text-xs">※ 導入後の保守・メンテナンス向けプラン（ライト: 月額 ¥50,000）もあります。詳しくは<a href={`${base}/services#subscription`} class="text-accent hover:text-accent-dark transition-colors">サービスページ</a>をご確認ください</span>
+                </td>
+              </tr>
+              <tr class="border-b border-base-dark">
+                <td class="pr-4 py-3 text-text-lighter">おたすけサポート</td>
+                <td class="py-3">¥5,000（税込）/ 60分<br />延長 ¥2,500 / 30分</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="mt-2 text-xs text-text-lighter">※ 上記以外の費用は発生しません。通信費・インターネット接続費はお客様のご負担となります。</p>
+        </div>
+
+        <!-- 支払方法 -->
+        <div>
+          <h2 class="text-lg font-bold text-primary mb-3">代金の支払方法</h2>
+          <p>クレジットカード決済（Stripe経由）</p>
+          <p class="text-xs text-text-lighter mt-1">対応ブランド：Visa、Mastercard、American Express、JCB</p>
+        </div>
+
+        <!-- 支払時期 -->
+        <div>
+          <h2 class="text-lg font-bold text-primary mb-3">代金の支払時期</h2>
+          <table class="text-sm w-full">
+            <tbody>
+              <tr class="border-b border-base-dark">
+                <td class="pr-4 py-3 text-text-lighter w-1/3 align-top">月額プラン</td>
+                <td class="py-3">申込時に初回決済。以降、お申込み日を基準に毎月同日に自動決済されます</td>
+              </tr>
+              <tr class="border-b border-base-dark">
+                <td class="pr-4 py-3 text-text-lighter">単発サービス</td>
+                <td class="py-3">申込時に決済</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- 役務の提供時期 -->
+        <div>
+          <h2 class="text-lg font-bold text-primary mb-3">役務の提供時期</h2>
+          <table class="text-sm w-full">
+            <tbody>
+              <tr class="border-b border-base-dark">
+                <td class="pr-4 py-3 text-text-lighter w-1/3">ことひらくAIラボ</td>
+                <td class="py-3">決済完了後、直ちにDiscordサーバーの会員限定チャンネルへアクセス可能</td>
+              </tr>
+              <tr class="border-b border-base-dark">
+                <td class="pr-4 py-3 text-text-lighter">実務プロンプト講座</td>
+                <td class="py-3">日程確定後に決済URLをお送りします。決済完了をもってお申込み確定となり、確定した日程にて実施いたします</td>
+              </tr>
+              <tr class="border-b border-base-dark">
+                <td class="pr-4 py-3 text-text-lighter">AI導入サブスク</td>
+                <td class="py-3">契約後、初回訪問日を調整のうえ開始</td>
+              </tr>
+              <tr class="border-b border-base-dark">
+                <td class="pr-4 py-3 text-text-lighter">おたすけサポート</td>
+                <td class="py-3">お問い合わせ後、訪問日を調整のうえ実施</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- 契約期間 -->
+        <div>
+          <h2 class="text-lg font-bold text-primary mb-3">契約期間</h2>
+          <table class="text-sm w-full">
+            <tbody>
+              <tr class="border-b border-base-dark">
+                <td class="pr-4 py-3 text-text-lighter w-1/3 align-top">月額プラン<br /><span class="text-xs">（AIラボ・AI導入サブスク）</span></td>
+                <td class="py-3">1か月単位の自動更新契約です。解約手続きを行わない限り、毎月自動的に契約が更新され、所定の月額料金が課金されます</td>
+              </tr>
+              <tr class="border-b border-base-dark">
+                <td class="pr-4 py-3 text-text-lighter">実務プロンプト講座</td>
+                <td class="py-3">1回ごとの単発契約です</td>
+              </tr>
+              <tr class="border-b border-base-dark">
+                <td class="pr-4 py-3 text-text-lighter">おたすけサポート</td>
+                <td class="py-3">1回ごとの単発契約です</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- 解約・キャンセル -->
+        <div>
+          <h2 class="text-lg font-bold text-primary mb-3">契約の解約・キャンセルについて</h2>
+          <table class="text-sm w-full">
+            <tbody>
+              <tr class="border-b border-base-dark">
+                <td class="pr-4 py-3 text-text-lighter w-1/3 align-top">月額プラン<br /><span class="text-xs">（AIラボ・AI導入サブスク）</span></td>
+                <td class="py-3">いつでも解約可能です。解約はお申込み時にAppsから届くメールに記載のリンクよりお手続きいただけます。解約手続き完了後、次回の課金更新日をもってサービスが終了します。月途中での解約の場合、当月分の日割り返金はいたしません。解約後も次回更新日までサービスをご利用いただけます</td>
+              </tr>
+              <tr class="border-b border-base-dark">
+                <td class="pr-4 py-3 text-text-lighter align-top">実務プロンプト講座</td>
+                <td class="py-3">
+                  開催日の3日前の23:59まで：全額返金<br />
+                  開催日の2日前〜当日：返金不可<br />
+                  <span class="text-xs text-text-lighter">※ 返金のご連絡は akkeynft@gmail.com までお願いいたします</span>
+                </td>
+              </tr>
+              <tr class="border-b border-base-dark">
+                <td class="pr-4 py-3 text-text-lighter align-top">おたすけサポート</td>
+                <td class="py-3">
+                  訪問予定日の前日17:00まで：キャンセル可能（全額返金）<br />
+                  当日キャンセル：返金不可<br />
+                  <span class="text-xs text-text-lighter">※ キャンセルのご連絡は akkeynft@gmail.com までお願いいたします</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- 動作環境 -->
+        <div>
+          <h2 class="text-lg font-bold text-primary mb-3">サービスの利用に必要な環境</h2>
+          <ul class="list-disc pl-5 space-y-1">
+            <li>インターネット接続環境</li>
+            <li>Discordアカウント（AIラボ・AI導入サブスクのご利用に必要）</li>
+            <li>パソコンまたはスマートフォン</li>
+          </ul>
+        </div>
+
+        <!-- 無料お試し -->
+        <div>
+          <h2 class="text-lg font-bold text-primary mb-3">無料お試し期間（ことひらくAIラボ）</h2>
+          <ul class="list-disc pl-5 space-y-1">
+            <li>無料期間：お申込み日から30日間</li>
+            <li>無料期間中はいつでも解約可能です。無料期間中に解約した場合、料金は一切発生しません</li>
+            <li>無料期間終了日の翌日より、月額1,000円（税込）の自動課金が開始されます</li>
+            <li>解約はお申込み時にAppsから届くメールに記載のリンクよりお手続きいただけます</li>
+          </ul>
+        </div>
+
+        <!-- 制定日 -->
+        <div class="border-t border-base-dark pt-6">
+          <table class="text-sm">
+            <tbody>
+              <tr><td class="pr-4 py-1 text-text-lighter">制定日</td><td class="py-1">2026年3月8日</td></tr>
+              <tr><td class="pr-4 py-1 text-text-lighter">事業者</td><td class="py-1">ことひらくAI 代表 秋吉 一輝</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</BaseLayout>

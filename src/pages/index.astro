@@ -192,13 +192,19 @@ const majorMedia = mediaAppearances.filter((m) =>
         <!-- AI導入サブスク -->
         <a
           href={`${base}/services#subscription`}
-          class="group relative block bg-base rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow border border-base-dark"
+          class="group relative block bg-base rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-base-dark"
         >
-          <div class="absolute -top-3 left-6">
-            <span class="bg-accent text-white text-xs font-bold px-3 py-1 rounded-full">
+          <div class="relative">
+            <img
+              src={`${base}/images/service-subscription-web.png`}
+              alt="AI導入サブスクのイメージ：コンサルタントと経営者が一緒にPC画面を見ながらAI業務フローを設計している様子"
+              class="w-full"
+            />
+            <span class="absolute bottom-3 left-4 bg-accent text-white text-xs font-bold px-3 py-1 rounded-full">
               おすすめ
             </span>
           </div>
+          <div class="p-8">
           <div class="text-3xl mb-3">💬</div>
           <h3 class="text-lg font-bold text-primary mb-2 group-hover:text-accent transition-colors">
             AI導入サブスク
@@ -213,14 +219,21 @@ const majorMedia = mediaAppearances.filter((m) =>
           <div class="text-accent text-sm font-medium">
             サブスクの詳細を見る →
           </div>
+          </div>
         </a>
 
         <!-- 実務プロンプト講座 -->
         <a
           href={`${base}/services#workshop`}
-          class="group block bg-base rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow border border-base-dark"
+          class="group block bg-base rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-base-dark"
         >
-          <div class="text-3xl mb-3 mt-4">📝</div>
+          <img
+            src={`${base}/images/service-prompt-course-web.png`}
+            alt="実務プロンプト講座のイメージ：講師がプロジェクター画面の横で説明し、受講者がPCで実践している様子"
+            class="w-full"
+          />
+          <div class="p-8">
+          <div class="text-3xl mb-3">📝</div>
           <h3 class="text-lg font-bold text-primary mb-2 group-hover:text-accent transition-colors">
             実務プロンプト講座
           </h3>
@@ -235,6 +248,7 @@ const majorMedia = mediaAppearances.filter((m) =>
           </div>
           <div class="text-accent text-sm font-medium">
             講座の詳細を見る →
+          </div>
           </div>
         </a>
       </div>

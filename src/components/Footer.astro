@@ -10,7 +10,7 @@ const base = import.meta.env.BASE_URL;
       <!-- ブランド -->
       <div>
         <div class="flex items-center gap-2 mb-4">
-          <span class="text-accent text-2xl">⛩</span>
+          <img src={`${base}/images/icon-footer.webp`} alt="" class="w-9 h-9 rounded" />
           <span class="text-white font-bold text-lg">{siteConfig.name}</span>
         </div>
         <p class="text-sm leading-relaxed">
@@ -58,6 +58,8 @@ const base = import.meta.env.BASE_URL;
     <div class="border-t border-white/20 mt-8 pt-8 text-center text-sm">
       <p class="mb-2">
         <a href={`${base}/privacy`} class="hover:text-accent transition-colors">プライバシーポリシー</a>
+        <span class="mx-2">／</span>
+        <a href={`${base}/legal`} class="hover:text-accent transition-colors">特定商取引法に基づく表記</a>
       </p>
       <p>&copy; {new Date().getFullYear()} {siteConfig.name}. All rights reserved.</p>
     </div>

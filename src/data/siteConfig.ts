@@ -49,7 +49,7 @@ export const services = [
     description:
       "Discord常時相談＋定期対面訪問で、AI活用を継続的にサポート。業務の棚卸しから日々の相談まで、伴走型で支援します。AIの最新トレンドや活用事例も随時お届けします。",
     icon: "💬",
-    topPrice: "月額100,000円〜",
+    topPrice: "月額100,000円〜（おすすめ）",
     plans: [
       {
         name: "スタンダード",
