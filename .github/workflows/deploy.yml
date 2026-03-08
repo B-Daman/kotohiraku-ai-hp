@@ -3,6 +3,8 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main]
+  schedule:
+    - cron: "0 15 * * *" # 毎日 15:00 UTC（= JST 0:00）にリビルド
   workflow_dispatch:
 
 permissions:

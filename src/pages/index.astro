@@ -1,8 +1,20 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { siteConfig, statsHighlights, mediaAppearances } from "../data/siteConfig";
+import { fetchStats } from "../data/fetchStats";
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+const stats = await fetchStats();
+const dynamicStats = statsHighlights.map((stat) => {
+  if (stat.label === "AIセミナー累計参加者") {
+    return { ...stat, number: stats.totalParticipants };
+  }
+  if (stat.label === "AIセミナー累計開催") {
+    return { ...stat, number: stats.totalSessions };
+  }
+  return { ...stat };
+});
 
 const beforeAfter = [
   { task: "メール作成", before: "30分", after: "5分" },
@@ -125,7 +137,7 @@ const majorMedia = majorMediaNames.map((name) => ({ name }));
   <section class="bg-white py-16 md:py-20">
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-        {statsHighlights.map((stat) => (
+        {dynamicStats.map((stat) => (
           <div class="text-center">
             <div class="text-4xl md:text-5xl font-bold text-primary">
               {stat.number}
