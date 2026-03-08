@@ -79,6 +79,17 @@ export const services = [
         period: "/月",
         features: ["個別要件に応じた支援"],
       },
+      {
+        name: "エンタープライズ",
+        price: "¥300,000〜",
+        period: "/月",
+        features: [
+          "週1回対面サポート",
+          "全社AI化ロードマップ策定",
+          "社内AI推進リーダー育成",
+          "専用Discordチャンネル",
+        ],
+      },
     ],
     lightPlan: {
       name: "ライト",
