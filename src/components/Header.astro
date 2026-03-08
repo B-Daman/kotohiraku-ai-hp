@@ -2,8 +2,10 @@
 import { siteConfig, navigation } from "../data/siteConfig";
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-const currentPath = Astro.url.pathname;
+const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
 const navLinks = navigation.filter((item) => item.href !== "/contact");
+const isActive = (href: string) =>
+  href === '/' ? currentPath === '/' : currentPath.startsWith(href);
 ---
 
 <header class="bg-white/90 backdrop-blur-sm sticky top-0 z-50 border-b border-base-dark">
@@ -22,7 +24,7 @@ const navLinks = navigation.filter((item) => item.href !== "/contact");
             href={`${base}${item.href}`}
             class:list={[
               "text-sm font-medium transition-colors hover:text-accent",
-              currentPath.endsWith(item.href) || (item.href === "/" && currentPath === base + "/")
+              isActive(item.href)
                 ? "text-accent"
                 : "text-text-light",
             ]}
@@ -59,7 +61,7 @@ const navLinks = navigation.filter((item) => item.href !== "/contact");
           href={`${base}${item.href}`}
           class:list={[
             "block text-sm font-medium py-2 transition-colors",
-            currentPath.endsWith(item.href) || (item.href === "/" && currentPath === base + "/")
+            isActive(item.href)
               ? "text-accent"
               : "text-text-light hover:text-primary",
           ]}

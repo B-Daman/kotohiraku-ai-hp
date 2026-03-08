@@ -20,6 +20,7 @@ const pageTitle =
     ? `${siteConfig.name} | ${siteConfig.tagline}`
     : `${title} | ${siteConfig.name}`;
 const ogImage = `${siteConfig.url}/images/ogp1.png`;
+const canonicalUrl = new URL(Astro.url.pathname, siteConfig.url).href;
 ---
 
 <!doctype html>
@@ -34,7 +35,8 @@ const ogImage = `${siteConfig.url}/images/ogp1.png`;
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content={siteConfig.url} />
+    <meta property="og:url" content={canonicalUrl} />
+    <link rel="canonical" href={canonicalUrl} />
     <meta property="og:site_name" content={siteConfig.name} />
     <meta property="og:image" content={ogImage} />
     <meta name="twitter:card" content="summary_large_image" />
