@@ -5,8 +5,8 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://b-daman.github.io',
-  base: '/kotohiraku-ai-hp',
+  site: 'https://kotohiraku-ai.com',
+  base: '/',
   vite: {
     plugins: [tailwindcss()]
   }

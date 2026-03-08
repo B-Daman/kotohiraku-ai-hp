@@ -7,7 +7,7 @@ export const siteConfig = {
   representative: "秋吉一輝（あっきー）",
   location: "香川県仲多度郡琴平町",
   philosophy: "AIを売るのではなく、課題解決を売る",
-  url: "https://b-daman.github.io/kotohiraku-ai-hp",
+  url: "https://kotohiraku-ai.com",
 } as const;
 
 // ナビゲーション
