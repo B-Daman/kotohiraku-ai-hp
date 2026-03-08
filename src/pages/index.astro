@@ -46,9 +46,8 @@ const steps = [
   },
 ];
 
-const majorMedia = mediaAppearances.filter((m) =>
-  ["NHK香川 NEWS WEB", "日本経済新聞", "四国新聞", "RSK山陽放送", "時事通信社", "KSB瀬戸内海放送"].includes(m.name)
-);
+const majorMediaNames = ["NHK香川 NEWS WEB", "日本経済新聞", "四国新聞", "RSK山陽放送", "時事通信社", "KSB瀬戸内海放送"];
+const majorMedia = majorMediaNames.map((name) => ({ name }));
 ---
 
 <BaseLayout>
