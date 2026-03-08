@@ -2,7 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { siteConfig, timeline, mediaAppearances, communityStats } from "../data/siteConfig";
 
-const base = import.meta.env.BASE_URL;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <BaseLayout title="プロフィール" description="ことひらくAI代表・秋吉一輝（あっきー）のプロフィール。琴平町地域おこし協力隊として活動中。">

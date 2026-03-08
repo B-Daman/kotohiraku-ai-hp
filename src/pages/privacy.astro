@@ -2,7 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { siteConfig } from "../data/siteConfig";
 
-const base = import.meta.env.BASE_URL;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <BaseLayout title="プライバシーポリシー" description="ことひらくAIのプライバシーポリシー。個人情報の取り扱いについてご説明します。">

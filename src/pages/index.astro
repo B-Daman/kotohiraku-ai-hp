@@ -2,7 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { siteConfig, statsHighlights, mediaAppearances } from "../data/siteConfig";
 
-const base = import.meta.env.BASE_URL;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 const beforeAfter = [
   { task: "メール作成", before: "30分", after: "5分" },

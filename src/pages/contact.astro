@@ -2,7 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { socialLinks } from "../data/siteConfig";
 
-const base = import.meta.env.BASE_URL;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const contactFormUrl = "https://forms.gle/QCUAV1sQgX44ZQvp9";
 ---
 

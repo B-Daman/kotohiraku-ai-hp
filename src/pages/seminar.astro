@@ -3,7 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Lightbox from "../components/Lightbox.astro";
 import { statsHighlights } from "../data/siteConfig";
 
-const base = import.meta.env.BASE_URL;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const seminarFormUrl = "https://docs.google.com/forms/d/e/1FAIpQLSeaINpgd23L94klsV8RiTAPJ5Xg_Loy4JMHbWcxLO_srrpHQw/viewform";
 
 const testimonials = [

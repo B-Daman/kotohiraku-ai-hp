@@ -1,7 +1,7 @@
 ---
 import { siteConfig, navigation } from "../data/siteConfig";
 
-const base = import.meta.env.BASE_URL;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const currentPath = Astro.url.pathname;
 const navLinks = navigation.filter((item) => item.href !== "/contact");
 ---
