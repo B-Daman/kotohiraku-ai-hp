@@ -5,12 +5,13 @@ import { services, faq } from "../data/siteConfig";
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
-const subscription = services[0];
-const workshop = services[1];
-const support = services[2];
+const consulting = services[0];
+const hp = services[1];
+const workshop = services[2];
+const support = services[3];
 ---
 
-<BaseLayout title="サービス" description="AI導入サブスク、実務プロンプト講座、おたすけサポート、AIラボ（コミュニティ）で、あなたのAI活用を支援します。">
+<BaseLayout title="サービス" description="社長AIコンサル、HP制作、実務プロンプト講座、おたすけサポート、AIラボ（コミュニティ）で、あなたのAI活用を支援します。">
   <!-- ページヘッダー -->
   <section class="bg-primary py-8 md:py-10">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 text-center">
@@ -24,7 +25,7 @@ const support = services[2];
   <!-- サービス一覧カード -->
   <section class="py-16 md:py-20">
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {services.map((service) => (
           <a
             href={`#${service.id}`}
@@ -46,63 +47,49 @@ const support = services[2];
     </div>
   </section>
 
-  <!-- サービス①: AI導入サブスク -->
-  <section id="subscription" class="bg-white py-16 md:py-24">
+  <!-- サービス①: 社長AIコンサル -->
+  <section id="consulting" class="bg-white py-16 md:py-24">
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
       <!-- ヘッダー -->
       <div class="mb-8">
         <div class="flex items-center gap-3 mb-2">
-          <span class="text-3xl">💬</span>
-          <span class="text-xs font-medium text-accent bg-accent/10 px-3 py-1 rounded-full">{subscription.target}</span>
+          <span class="text-3xl">{consulting.icon}</span>
+          <span class="text-xs font-medium text-accent bg-accent/10 px-3 py-1 rounded-full">{consulting.target}</span>
         </div>
-        <h2 class="text-2xl md:text-3xl font-bold text-primary mb-4">{subscription.title}</h2>
+        <h2 class="text-2xl md:text-3xl font-bold text-primary mb-2">{consulting.title}</h2>
+        <p class="text-accent font-bold mb-4">「社長の1日を、2〜3時間取り戻す」</p>
         <p class="text-text-light max-w-3xl">
-          {subscription.description}
+          {consulting.description}
         </p>
       </div>
 
-      <!-- 説明（左）+ プラン一覧（右） -->
+      <!-- 説明（左）+ 特徴・価格（右） -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
         <!-- 左: イメージ画像 -->
         <img
           src={`${base}/images/service-subscription-web.webp`}
-          alt="AI導入サブスクのイメージ：コンサルタントと経営者が一緒にPC画面を見ながらAI業務フローを設計している様子"
+          alt="社長AIコンサルのイメージ：コンサルタントと経営者が一緒にPC画面を見ながらAI業務フローを設計している様子"
           class="w-full rounded-xl"
         />
 
-        <!-- 右: プラン + CTA -->
+        <!-- 右: 特徴 + 価格 + CTA -->
         <div>
-          <div class="space-y-3 mb-6">
-            {subscription.plans?.map((plan) => (
-              <div class:list={[
-                "rounded-xl p-4 border-2",
-                plan.recommended
-                  ? "border-accent bg-base relative"
-                  : "border-base-dark bg-base",
-              ]}>
-                {plan.recommended && (
-                  <span class="absolute -top-2.5 right-4 bg-accent text-white text-[10px] font-medium px-3 py-0.5 rounded-full">
-                    おすすめ
-                  </span>
-                )}
-                <div class="flex items-baseline justify-between">
-                  <h3 class="text-sm font-bold text-primary">{plan.name}</h3>
-                  <div>
-                    <span class="text-lg font-bold text-primary">{plan.price}</span>
-                    <span class="text-text-light text-xs">{plan.period}</span>
-                  </div>
-                </div>
-                <ul class="flex flex-wrap gap-x-4 gap-y-1 mt-2">
-                  {plan.features.map((feature) => (
-                    <li class="flex items-center gap-1 text-xs text-text-light">
-                      <span class="text-accent">✓</span>
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+          <ul class="space-y-2 text-sm text-text-light mb-6">
+            {consulting.features.map((feature) => (
+              <li class="flex items-start gap-2">
+                <span class="text-accent mt-0.5">✓</span>
+                <span>{feature}</span>
+              </li>
             ))}
+          </ul>
+          <div class="flex items-baseline gap-2 mb-2">
+            <span class="text-2xl font-bold text-primary">{consulting.pricing.price}</span>
+            <span class="text-text-light text-sm">{consulting.pricing.unit}</span>
           </div>
+          <p class="text-text-lighter text-xs mb-6">{consulting.note}</p>
+          <p class="text-text-light text-sm leading-relaxed mb-4">
+            まずは30分の無料相談で、社長の1週間の「面倒な作業」を棚卸しします。
+          </p>
           <a
             href={`${base}/contact`}
             class="inline-flex items-center justify-center w-full bg-accent text-white px-8 py-3 rounded-lg font-medium hover:bg-accent-dark transition-colors"
@@ -114,7 +101,61 @@ const support = services[2];
     </div>
   </section>
 
-  <!-- サービス②: 実務プロンプト講座 -->
+  <!-- サービス②: HP制作 -->
+  <section id="hp" class="py-16 md:py-24">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <!-- ヘッダー -->
+      <div class="mb-8">
+        <div class="flex items-center gap-3 mb-2">
+          <span class="text-3xl">{hp.icon}</span>
+          <span class="text-xs font-medium text-accent bg-accent/10 px-3 py-1 rounded-full">{hp.target}</span>
+        </div>
+        <h2 class="text-2xl md:text-3xl font-bold text-primary mb-2">{hp.title}</h2>
+        <p class="text-accent font-bold mb-4">「琴平の事業者の『あったらいいな』を、形にします」</p>
+        <p class="text-text-light max-w-3xl">
+          {hp.description}
+        </p>
+      </div>
+
+      <!-- 料金プラン（左）+ 詳細（右） -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+        <!-- 左: 料金プラン -->
+        <div class="space-y-3">
+          {hp.pricing.map((plan) => (
+            <div class="rounded-xl p-4 border-2 border-base-dark bg-base">
+              <h3 class="text-sm font-bold text-primary mb-1">{plan.name}</h3>
+              <div class="flex items-baseline justify-between">
+                <span class="text-lg font-bold text-primary">{plan.price}</span>
+                <span class="text-text-light text-xs">{plan.duration}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <!-- 右: 詳細 + CTA -->
+        <div>
+          <ul class="space-y-2 text-sm text-text-light mb-6">
+            {hp.features.map((feature) => (
+              <li class="flex items-start gap-2">
+                <span class="text-accent mt-0.5">✓</span>
+                <span>{feature}</span>
+              </li>
+            ))}
+          </ul>
+          <p class="text-text-lighter text-xs mb-2">{hp.monitorNote}</p>
+          <p class="text-text-lighter text-xs mb-6">{hp.optionNote}</p>
+          <a
+            href={`${base}/contact`}
+            class="inline-flex items-center justify-center w-full bg-accent text-white px-8 py-3 rounded-lg font-medium hover:bg-accent-dark transition-colors"
+          >
+            HP制作について相談する
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- サービス③: 実務プロンプト講座 -->
   <section id="workshop" class="py-16 md:py-24">
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
       <!-- ヘッダー -->
@@ -175,7 +216,7 @@ const support = services[2];
     </div>
   </section>
 
-  <!-- サービス③: おたすけサポート -->
+  <!-- サービス④: おたすけサポート -->
   <section id="support" class="bg-white py-16 md:py-24">
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
       <!-- ヘッダー -->
@@ -222,7 +263,7 @@ const support = services[2];
             </li>
           </ul>
           <div class="flex flex-wrap items-baseline gap-4 mb-6 text-sm">
-            <span class="font-bold text-primary text-lg">¥5,000<span class="text-sm text-text-light font-normal"> / 60分</span></span>
+            <span class="font-bold text-primary text-lg">¥5,000<span class="text-sm text-text-light font-normal"> / 60分（税込）</span></span>
             <span class="text-text-light">延長 ¥2,500 / 30分</span>
           </div>
           <p class="text-text-lighter text-xs mb-4">琴平町内（自転車20分圏）</p>

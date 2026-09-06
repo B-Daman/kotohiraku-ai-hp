@@ -34,8 +34,8 @@ const painPoints = [
       "調べても情報が多すぎる。自社にどう使えるか見当がつかない",
   },
   {
-    title: "大手に相談したら、見積もりが数十万だった",
-    description: "自分たちの規模に合うサービスが見つからない",
+    title: "ツールは入れたけれど、結局使っていない",
+    description: "設定だけで止まり、業務は前と同じ。隣で教えてくれる人がいない",
   },
 ];
 
@@ -200,15 +200,15 @@ const majorMedia = majorMediaNames.map((name) => ({ name }));
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <!-- AI導入サブスク -->
+        <!-- 社長AIコンサル -->
         <a
-          href={`${base}/services#subscription`}
+          href={`${base}/services#consulting`}
           class="group relative block bg-base rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-base-dark"
         >
           <div class="relative">
             <img
               src={`${base}/images/service-subscription-web.webp`}
-              alt="AI導入サブスクのイメージ：コンサルタントと経営者が一緒にPC画面を見ながらAI業務フローを設計している様子"
+              alt="社長AIコンサルのイメージ：コンサルタントと経営者が一緒にPC画面を見ながらAI業務フローを設計している様子"
               class="w-full"
             />
             <span class="absolute bottom-3 left-4 bg-accent text-white text-xs font-bold px-3 py-1 rounded-full">
@@ -218,61 +218,72 @@ const majorMedia = majorMediaNames.map((name) => ({ name }));
           <div class="p-8">
           <div class="text-3xl mb-3">💬</div>
           <h3 class="text-lg font-bold text-primary mb-2 group-hover:text-accent transition-colors">
-            AI導入サブスク
+            社長AIコンサル
           </h3>
-          <p class="text-text-lighter text-xs mb-3">業務全体を見直したい方</p>
+          <p class="text-text-lighter text-xs mb-3">会社の社長ご本人。自分の仕事をまずAIでラクにしたい方</p>
           <p class="text-text-light text-sm leading-relaxed mb-4">
-            月1〜2回の訪問 + Discordでの常時相談。業務の棚卸しからAI活用の定着まで伴走します。AIの最新トレンドや活用事例も随時お届けします。
+            月1〜2回の対面 + チャットでの常時相談。議事録・返信文・資料づくりをAIに任せる環境を、社長のパソコンに一緒に作ります。見つかった業務課題は、動くツールにして納めます。
           </p>
           <div class="text-primary font-bold text-lg mb-4">
-            月額 100,000円<span class="text-sm font-normal text-text-light">〜</span>
+            月額 200,000円<span class="text-sm font-normal text-text-light">（税込）</span>
           </div>
           <div class="text-accent text-sm font-medium">
-            サブスクの詳細を見る →
+            コンサルの詳細を見る →
           </div>
           </div>
         </a>
 
-        <!-- 実務プロンプト講座 -->
+        <!-- HP制作 -->
         <a
-          href={`${base}/services#workshop`}
+          href={`${base}/services#hp`}
           class="group block bg-base rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-base-dark"
         >
           <img
             src={`${base}/images/service-prompt-course-web.webp`}
-            alt="実務プロンプト講座のイメージ：講師がプロジェクター画面の横で説明し、受講者がPCで実践している様子"
+            alt="HP制作の打ち合わせのイメージ：画面を見ながら内容を一緒に決めている様子"
             class="w-full"
           />
           <div class="p-8">
-          <div class="text-3xl mb-3">📝</div>
+          <div class="text-3xl mb-3">🌐</div>
           <h3 class="text-lg font-bold text-primary mb-2 group-hover:text-accent transition-colors">
-            実務プロンプト講座
+            HP制作
           </h3>
           <p class="text-text-lighter text-xs mb-3">
-            特定の業務をAIで効率化したい方、一連の業務をAIに任せたい方
+            これからHPを持つ、または作り直したい琴平の事業者の方
           </p>
           <p class="text-text-light text-sm leading-relaxed mb-4">
-            最大3名の少人数制。自分の業務に使えるプロンプトを一緒に作って持ち帰れます。
+            琴平の事業者の「あったらいいな」を、形にします。LPなら2〜3週間、会社サイトなら4〜5週間で公開まで。
           </p>
           <div class="text-primary font-bold text-lg mb-4">
-            20,000円<span class="text-sm font-normal text-text-light"> / 回（約2時間）</span>
+            LP 55,000円<span class="text-sm font-normal text-text-light">〜（税込）</span>
           </div>
           <div class="text-accent text-sm font-medium">
-            講座の詳細を見る →
+            HP制作の詳細を見る →
           </div>
           </div>
         </a>
       </div>
 
-      <!-- おたすけサポート補足リンク -->
-      <div class="text-center mt-8">
-        <a
-          href={`${base}/services#support`}
-          class="text-text-light text-sm hover:text-accent transition-colors"
-        >
-          パソコン・AIのちょっとした困りごとは →
-          <span class="underline">おたすけサポート</span>
-        </a>
+      <!-- 追加サービス補足リンク -->
+      <div class="text-center mt-8 space-y-2">
+        <p>
+          <a
+            href={`${base}/services#workshop`}
+            class="text-text-light text-sm hover:text-accent transition-colors"
+          >
+            業務に直結するプロンプトを2時間で →
+            <span class="underline">実務プロンプト講座</span>
+          </a>
+        </p>
+        <p>
+          <a
+            href={`${base}/services#support`}
+            class="text-text-light text-sm hover:text-accent transition-colors"
+          >
+            パソコン・AIのちょっとした困りごとは →
+            <span class="underline">おたすけサポート</span>
+          </a>
+        </p>
       </div>
     </div>
   </section>
@@ -323,7 +334,7 @@ const majorMedia = majorMediaNames.map((name) => ({ name }));
             秋吉 一輝<span class="text-base font-normal text-text-light ml-2">（あっきー）</span>
           </h3>
           <p class="text-text-light text-sm leading-relaxed mb-4">
-            モットーは「難しいことを、わかりやすく」。週2回の無料AIセミナーを10ヶ月以上続けながら、皆さんの「ちょっと聞きたい」に応えられる存在を目指しています。
+            モットーは「難しいことを、わかりやすく」。2025年から琴平町で無料のAIセミナー・体験会を続けながら、皆さんの「ちょっと聞きたい」に応えられる存在を目指しています。
           </p>
           <a
             href={`${base}/profile`}

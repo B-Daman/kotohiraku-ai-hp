@@ -28,6 +28,7 @@ const testimonials = [
 ];
 
 const weeklyTopics = [
+  "琴平町のお話を、AIを使って4コマ漫画にしてみよう",
   "AIでスライドを作成してみよう！",
   "AIを使った新時代の情報収集！",
   "AIで議事録を自動作成してみよう",
@@ -42,13 +43,13 @@ const weeklyTopics = [
 ];
 ---
 
-<BaseLayout title="無料AIセミナー" description={`琴平町で毎週2回開催の無料AIセミナー。累計${stats.totalParticipants}名以上が参加、満足度4.55/5.0。どなたでもお気軽にご参加いただけます。`}>
+<BaseLayout title="無料AIセミナー" description={`琴平町で月2回開催の無料AI体験会。累計${stats.totalParticipants}名以上が参加、満足度4.55/5.0。どなたでもお気軽にご参加いただけます。`}>
   <!-- ページヘッダー -->
   <section class="bg-primary py-8 md:py-10">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 text-center">
       <h1 class="text-3xl md:text-4xl font-bold text-white mb-2">無料AIセミナー</h1>
       <p class="text-white/70 max-w-2xl mx-auto text-sm">
-        「AIって何ができるの？」から始められる、実践型セミナーです
+        「AIって何ができるの？」から始められる、実践型の体験会です
       </p>
     </div>
   </section>
@@ -59,8 +60,8 @@ const weeklyTopics = [
       <div class="flex flex-col md:flex-row gap-8 md:gap-12 items-start">
         <!-- 左: チラシ画像 -->
         <img
-          src={`${base}/images/flyer-seminar.webp`}
-          alt="無料AIセミナーチラシ"
+          src={`${base}/images/flyer-taikenkai-web.webp`}
+          alt="あなたにもできる AI体験会 チラシ"
           class="flyer-thumb rounded-lg shadow-md border border-base-dark cursor-pointer hover:opacity-90 transition-opacity flex-shrink-0 mx-auto md:mx-0"
           style="width: 450px; height: auto;"
         />
@@ -70,8 +71,8 @@ const weeklyTopics = [
             まずは気軽に、体験してみませんか？
           </h2>
           <p class="text-text-light leading-relaxed mb-4">
-            「AIに興味はあるけど、何から始めればいいか分からない」という方のための無料セミナーです。
-            2025年5月から琴平町内で毎週開催し、ITリテラシーに関わらずどなたでもご参加いただけます。
+            「AIに興味はあるけど、何から始めればいいか分からない」という方のための無料の体験会です。
+            2025年から琴平町内で開催を続け、現在は月2回、ITリテラシーに関わらずどなたでもご参加いただけます。
           </p>
           <p class="text-text-light leading-relaxed mb-6">
             実際にAIツールを触りながら学ぶ実践型なので、セミナー後すぐにご自身の業務で試せます。
@@ -82,12 +83,11 @@ const weeklyTopics = [
             <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mb-5">
               <div class="bg-base rounded-lg p-3">
                 <div class="text-text-lighter text-xs mb-1">【日時】</div>
-                <div class="text-primary text-sm font-medium">火曜日 13:00〜14:00</div>
-                <div class="text-text-light text-xs">@琴平町総合センター</div>
-                <div class="text-text-lighter text-xs mb-2">※Wi-Fiはありません</div>
-                <div class="text-primary text-sm font-medium">木曜日 18:00〜19:00</div>
-                <div class="text-text-light text-xs">@コトリ コワーキング&ホステル 琴平</div>
-                <div class="text-text-lighter text-xs">※駐車場のご用意はありません</div>
+                <div class="text-primary text-sm font-medium mb-1">あなたにもできる AI体験会</div>
+                <div class="text-primary text-sm font-medium">第1・第3火曜日 13:30〜15:30</div>
+                <div class="text-accent text-sm font-bold">次回：9月15日（火）・9月30日（水）</div>
+                <div class="text-text-light text-xs">@たこやきスカンク＆カフェ象山（きさやま）</div>
+                <div class="text-text-lighter text-xs">※月により曜日・日程が変わることがあります。開催日は申込フォームでご確認ください</div>
               </div>
               <div class="space-y-3">
                 <div class="bg-base rounded-lg p-3">
@@ -139,27 +139,15 @@ const weeklyTopics = [
     </div>
   </section>
 
-  <!-- セミナーラインナップ -->
+  <!-- これまでのテーマ（一部） -->
   <section class="py-16 md:py-20">
     <div class="max-w-5xl mx-auto px-4 sm:px-6">
-      <h2 class="text-2xl md:text-3xl font-bold text-primary mb-10 text-center">セミナーラインナップ</h2>
+      <h2 class="text-2xl md:text-3xl font-bold text-primary mb-4 text-center">これまでのテーマ（一部）</h2>
+      <p class="text-text-light text-sm text-center mb-10 max-w-2xl mx-auto">
+        現在の体験会は各回完結です。「琴平町のお話を、AIを使って4コマ漫画にしてみよう」のように、その場で1つ作って持ち帰ります。
+      </p>
 
-      <!-- 毎月第1週（固定） -->
-      <div class="bg-white rounded-2xl p-6 md:p-8 border border-accent/30 mb-8">
-        <div class="flex items-center gap-3 mb-2">
-          <span class="bg-accent text-white text-xs font-bold px-3 py-1 rounded-full">毎月第1週</span>
-          <span class="text-text-lighter text-xs">※ 固定開催</span>
-        </div>
-        <h3 class="font-bold text-primary text-lg">初心者向けAIセミナー</h3>
-        <p class="text-text-light text-sm mt-1">AIが初めての方はここからどうぞ。基本操作から丁寧にお伝えします。</p>
-      </div>
-
-      <!-- 第2週以降（週替わり） -->
       <div class="bg-white rounded-2xl p-6 md:p-8 border border-primary/15">
-        <div class="flex items-center gap-3 mb-4">
-          <span class="bg-primary text-white text-xs font-bold px-3 py-1 rounded-full">第2週以降</span>
-          <span class="text-text-lighter text-xs">週替わりテーマ</span>
-        </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
           {weeklyTopics.map((topic) => (
             <div class="bg-base rounded-lg px-4 py-3 text-sm text-primary">

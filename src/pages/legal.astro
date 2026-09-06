@@ -53,26 +53,31 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
           <table class="text-sm w-full">
             <tbody>
               <tr class="border-b border-base-dark">
-                <td class="pr-4 py-3 text-text-lighter w-1/3">ことひらくAIラボ</td>
-                <td class="py-3">月額 ¥1,000（税込）・1か月単位の自動更新</td>
+                <td class="pr-4 py-3 text-text-lighter w-1/3 align-top">社長AIコンサル</td>
+                <td class="py-3">
+                  月額 ¥200,000（税込）<br />
+                  契約は月単位
+                </td>
+              </tr>
+              <tr class="border-b border-base-dark">
+                <td class="pr-4 py-3 text-text-lighter align-top">HP制作</td>
+                <td class="py-3">
+                  LP（1ページ）¥55,000（税込）<br />
+                  コーポレートサイト（5ページ前後）¥110,000（税込）<br />
+                  <span class="text-text-lighter text-xs">※モニター価格（先着3件・実績公開にご協力いただける方）</span>
+                </td>
               </tr>
               <tr class="border-b border-base-dark">
                 <td class="pr-4 py-3 text-text-lighter">実務プロンプト講座</td>
                 <td class="py-3">¥20,000（税込）/ 1回（約2時間）</td>
               </tr>
               <tr class="border-b border-base-dark">
-                <td class="pr-4 py-3 text-text-lighter align-top">AI導入サブスク</td>
-                <td class="py-3">
-                  スタンダード: 月額 ¥70,000（税込）<br />
-                  プレミアム: 月額 ¥100,000（税込）<br />
-                  カスタム: 月額 ¥150,000〜（税込・個別見積もり）<br />
-                  いずれも1か月単位の自動更新<br />
-                  <span class="text-text-lighter text-xs">※ 導入後の保守・メンテナンス向けプラン（ライト: 月額 ¥50,000）もあります。詳しくは<a href={`${base}/services#subscription`} class="text-accent hover:text-accent-dark transition-colors">サービスページ</a>をご確認ください</span>
-                </td>
-              </tr>
-              <tr class="border-b border-base-dark">
                 <td class="pr-4 py-3 text-text-lighter">おたすけサポート</td>
                 <td class="py-3">¥5,000（税込）/ 60分<br />延長 ¥2,500 / 30分</td>
+              </tr>
+              <tr class="border-b border-base-dark">
+                <td class="pr-4 py-3 text-text-lighter w-1/3">ことひらくAIラボ</td>
+                <td class="py-3">月額 ¥1,000（税込）・1か月単位の自動更新</td>
               </tr>
             </tbody>
           </table>
@@ -82,7 +87,8 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
         <!-- 支払方法 -->
         <div>
           <h2 class="text-lg font-bold text-primary mb-3">代金の支払方法</h2>
-          <p>クレジットカード決済（Stripe経由）</p>
+          <p>銀行振込（請求書払い）：社長AIコンサル、HP制作</p>
+          <p class="mt-2">クレジットカード決済（Stripe経由）：実務プロンプト講座、おたすけサポート、ことひらくAIラボ</p>
           <p class="text-xs text-text-lighter mt-1">対応ブランド：Visa、Mastercard、American Express、JCB</p>
         </div>
 
@@ -92,12 +98,20 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
           <table class="text-sm w-full">
             <tbody>
               <tr class="border-b border-base-dark">
-                <td class="pr-4 py-3 text-text-lighter w-1/3 align-top">月額プラン</td>
-                <td class="py-3">申込時に初回決済。以降、お申込み日を基準に毎月同日に自動決済されます</td>
+                <td class="pr-4 py-3 text-text-lighter w-1/3 align-top">月額プラン（ことひらくAIラボ）</td>
+                <td class="py-3">申込時に初回決済、以降お申込み日を基準に毎月同日に自動決済</td>
               </tr>
               <tr class="border-b border-base-dark">
-                <td class="pr-4 py-3 text-text-lighter">単発サービス</td>
+                <td class="pr-4 py-3 text-text-lighter">単発サービス（実務プロンプト講座、おたすけサポート）</td>
                 <td class="py-3">申込時に決済</td>
+              </tr>
+              <tr class="border-b border-base-dark">
+                <td class="pr-4 py-3 text-text-lighter">社長AIコンサル</td>
+                <td class="py-3">月ごとに請求書を発行し、記載の支払期限までに銀行振込</td>
+              </tr>
+              <tr class="border-b border-base-dark">
+                <td class="pr-4 py-3 text-text-lighter">HP制作</td>
+                <td class="py-3">請求書記載の支払期限までに銀行振込（分割の有無は契約時にご案内します）</td>
               </tr>
             </tbody>
           </table>
@@ -117,8 +131,12 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
                 <td class="py-3">日程確定後に決済URLをお送りします。決済完了をもってお申込み確定となり、確定した日程にて実施いたします</td>
               </tr>
               <tr class="border-b border-base-dark">
-                <td class="pr-4 py-3 text-text-lighter">AI導入サブスク</td>
-                <td class="py-3">契約後、初回訪問日を調整のうえ開始</td>
+                <td class="pr-4 py-3 text-text-lighter">社長AIコンサル</td>
+                <td class="py-3">契約開始日から月単位で提供</td>
+              </tr>
+              <tr class="border-b border-base-dark">
+                <td class="pr-4 py-3 text-text-lighter align-top">HP制作</td>
+                <td class="py-3">内容確定後、LPは2〜3週間、コーポレートサイトは4〜5週間を目安に納品</td>
               </tr>
               <tr class="border-b border-base-dark">
                 <td class="pr-4 py-3 text-text-lighter">おたすけサポート</td>
@@ -134,7 +152,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
           <table class="text-sm w-full">
             <tbody>
               <tr class="border-b border-base-dark">
-                <td class="pr-4 py-3 text-text-lighter w-1/3 align-top">月額プラン<br /><span class="text-xs">（AIラボ・AI導入サブスク）</span></td>
+                <td class="pr-4 py-3 text-text-lighter w-1/3 align-top">月額プラン<br /><span class="text-xs">（ことひらくAIラボ）</span></td>
                 <td class="py-3">1か月単位の自動更新契約です。解約手続きを行わない限り、毎月自動的に契約が更新され、所定の月額料金が課金されます</td>
               </tr>
               <tr class="border-b border-base-dark">
@@ -155,8 +173,16 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
           <table class="text-sm w-full">
             <tbody>
               <tr class="border-b border-base-dark">
-                <td class="pr-4 py-3 text-text-lighter w-1/3 align-top">月額プラン<br /><span class="text-xs">（AIラボ・AI導入サブスク）</span></td>
+                <td class="pr-4 py-3 text-text-lighter w-1/3 align-top">月額プラン<br /><span class="text-xs">（ことひらくAIラボ）</span></td>
                 <td class="py-3">いつでも解約可能です。解約はお申込み時にAppsから届くメールに記載のリンクよりお手続きいただけます。解約手続き完了後、次回の課金更新日をもってサービスが終了します。月途中での解約の場合、当月分の日割り返金はいたしません。解約後も次回更新日までサービスをご利用いただけます</td>
+              </tr>
+              <tr class="border-b border-base-dark">
+                <td class="pr-4 py-3 text-text-lighter align-top">社長AIコンサル</td>
+                <td class="py-3">月単位でいつでも解約できます。翌月からの解約は当月末までにご連絡ください。月途中の解約による日割り返金はありません。</td>
+              </tr>
+              <tr class="border-b border-base-dark">
+                <td class="pr-4 py-3 text-text-lighter align-top">HP制作</td>
+                <td class="py-3">着手後のキャンセルは、進捗に応じた作業費をご請求する場合があります。納品後の返金はありません。</td>
               </tr>
               <tr class="border-b border-base-dark">
                 <td class="pr-4 py-3 text-text-lighter align-top">実務プロンプト講座</td>
@@ -183,7 +209,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
           <h2 class="text-lg font-bold text-primary mb-3">サービスの利用に必要な環境</h2>
           <ul class="list-disc pl-5 space-y-1">
             <li>インターネット接続環境</li>
-            <li>Discordアカウント（AIラボ・AI導入サブスクのご利用に必要）</li>
+            <li>Discordアカウント（ことひらくAIラボのご利用に必要）</li>
             <li>パソコンまたはスマートフォン</li>
           </ul>
         </div>
@@ -204,6 +230,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
           <table class="text-sm">
             <tbody>
               <tr><td class="pr-4 py-1 text-text-lighter">制定日</td><td class="py-1">2026年3月8日</td></tr>
+              <tr><td class="pr-4 py-1 text-text-lighter">改定日</td><td class="py-1">2026年9月7日</td></tr>
               <tr><td class="pr-4 py-1 text-text-lighter">事業者</td><td class="py-1">ことひらくAI 代表 秋吉 一輝</td></tr>
             </tbody>
           </table>
