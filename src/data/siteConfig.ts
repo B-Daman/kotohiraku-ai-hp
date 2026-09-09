@@ -216,6 +216,20 @@ export const mediaAppearances = [
   },
 ] as const;
 
+// 出張・依頼セミナー実績（依頼を受けて団体・企業向けに実施したもの）
+// name: 主催・依頼元 / title: セミナー名 / type: 種別 / date: 実施年月 / participants: 参加者数 / url: 掲載記事など（無ければ空）
+// 掲載は依頼元の許可を得たもののみ。新しいものを先頭に置く
+export const guestSeminars = [
+  {
+    name: "丸亀商工会議所女性会",
+    title: "AIセミナー",
+    type: "出張セミナー",
+    date: "2026年9月",
+    participants: "17名",
+    url: "",
+  },
+];
+
 // 経歴タイムライン
 export const timeline = [
   {

@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Lightbox from "../components/Lightbox.astro";
-import { statsHighlights } from "../data/siteConfig";
+import { statsHighlights, guestSeminars } from "../data/siteConfig";
 import { fetchStats } from "../data/fetchStats";
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
@@ -17,6 +17,11 @@ const dynamicStats = statsHighlights.map((stat) => {
   }
   return { ...stat };
 });
+
+// 出張・依頼セミナー実績を年ごとにまとめる（新しい年が先）
+const guestSeminarYears = [...new Set(guestSeminars.map((s) => s.date.split("年")[0]))].sort(
+  (a, b) => Number(b) - Number(a)
+);
 
 const testimonials = [
   { text: "AI活用というと何となく難しいような気がしていましたが、誰でも簡単に利用できることを知り、苦手意識を少し克服することができました。", attribution: "役場職員", avatar: "avatar-staff-female-30.webp" },
@@ -135,6 +140,36 @@ const weeklyTopics = [
             <p class="text-text-light mt-2 text-sm">{stat.label}</p>
           </div>
         ))}
+      </div>
+
+      <!-- 出張・依頼セミナー実績 -->
+      <div class="mt-12 max-w-4xl mx-auto">
+        <h3 class="text-xl font-bold text-primary mb-6 text-center">出張・依頼セミナー実績</h3>
+        <div class="bg-white rounded-2xl border border-base-dark overflow-hidden">
+          {guestSeminarYears.map((year) => {
+            const items = guestSeminars.filter((s) => s.date.startsWith(year));
+            return (
+              <div>
+                <div class="bg-primary/5 px-5 py-2">
+                  <span class="text-sm font-bold text-primary">{year}年</span>
+                </div>
+                {items.map((item, i) => (
+                  <div class:list={["px-5 py-2 flex items-center gap-3", i < items.length - 1 ? "border-b border-base-dark" : ""]}>
+                    <span class="text-text-lighter text-xs w-10 flex-shrink-0">{item.date.split("年")[1]}</span>
+                    <span class="text-primary text-sm font-medium flex-shrink-0">{item.name}</span>
+                    <span class="text-text-light text-xs truncate min-w-0">{item.title}</span>
+                    <span class="text-text-light text-xs flex-shrink-0 ml-auto">{item.participants}</span>
+                    {item.url ? (
+                      <a href={item.url} target="_blank" rel="noopener noreferrer" class="text-accent text-xs font-medium hover:text-accent-dark transition-colors flex-shrink-0">
+                        詳細 →
+                      </a>
+                    ) : null}
+                  </div>
+                ))}
+              </div>
+            );
+          })}
+        </div>
       </div>
     </div>
   </section>
