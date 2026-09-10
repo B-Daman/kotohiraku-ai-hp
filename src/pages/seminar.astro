@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Lightbox from "../components/Lightbox.astro";
-import { statsHighlights, guestSeminars } from "../data/siteConfig";
+import { statsHighlights, regularSeminars, guestSeminars } from "../data/siteConfig";
 import { fetchStats } from "../data/fetchStats";
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
@@ -142,10 +142,22 @@ const weeklyTopics = [
         ))}
       </div>
 
-      <!-- 出張・依頼セミナー実績 -->
+      <!-- これまでの開催実績（定例＋出張・依頼） -->
       <div class="mt-12 max-w-4xl mx-auto">
-        <h3 class="text-xl font-bold text-primary mb-6 text-center">出張・依頼セミナー実績</h3>
+        <h3 class="text-xl font-bold text-primary mb-6 text-center">これまでの開催実績</h3>
         <div class="bg-white rounded-2xl border border-base-dark overflow-hidden">
+          <div>
+            <div class="bg-primary/5 px-5 py-2">
+              <span class="text-sm font-bold text-primary">定例開催（自主企画）</span>
+            </div>
+            {regularSeminars.map((item, i) => (
+              <div class:list={["px-5 py-2 flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3", i < regularSeminars.length - 1 ? "border-b border-base-dark" : ""]}>
+                <span class="text-text-lighter text-xs sm:w-40 flex-shrink-0">{item.period}</span>
+                <span class="text-primary text-sm font-medium flex-shrink-0">{item.name}</span>
+                <span class="text-text-light text-xs min-w-0">{item.description}</span>
+              </div>
+            ))}
+          </div>
           {guestSeminarYears.map((year) => {
             const items = guestSeminars.filter((s) => s.date.startsWith(year));
             return (
@@ -162,6 +174,7 @@ const weeklyTopics = [
                       {item.participants ? (
                         <span class="text-text-light text-xs">{item.participants}</span>
                       ) : null}
+                      <span class="text-xs px-2 py-0.5 rounded-full bg-primary/5 text-primary">{item.type}</span>
                       {item.url ? (
                         <a href={item.url} target="_blank" rel="noopener noreferrer" class="text-accent text-xs font-medium hover:text-accent-dark transition-colors">
                           詳細 →
