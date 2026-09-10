@@ -158,12 +158,16 @@ const weeklyTopics = [
                     <span class="text-text-lighter text-xs w-10 flex-shrink-0">{item.date.split("年")[1]}</span>
                     <span class="text-primary text-sm font-medium flex-shrink-0">{item.name}</span>
                     <span class="text-text-light text-xs truncate min-w-0">{item.title}</span>
-                    <span class="text-text-light text-xs flex-shrink-0 ml-auto">{item.participants}</span>
-                    {item.url ? (
-                      <a href={item.url} target="_blank" rel="noopener noreferrer" class="text-accent text-xs font-medium hover:text-accent-dark transition-colors flex-shrink-0">
-                        詳細 →
-                      </a>
-                    ) : null}
+                    <span class="ml-auto flex items-center gap-3 flex-shrink-0">
+                      {item.participants ? (
+                        <span class="text-text-light text-xs">{item.participants}</span>
+                      ) : null}
+                      {item.url ? (
+                        <a href={item.url} target="_blank" rel="noopener noreferrer" class="text-accent text-xs font-medium hover:text-accent-dark transition-colors">
+                          詳細 →
+                        </a>
+                      ) : null}
+                    </span>
                   </div>
                 ))}
               </div>

@@ -217,7 +217,7 @@ export const mediaAppearances = [
 ] as const;
 
 // 出張・依頼セミナー実績（依頼を受けて団体・企業向けに実施したもの）
-// name: 主催・依頼元 / title: セミナー名 / type: 種別 / date: 実施年月 / participants: 参加者数 / url: 掲載記事など（無ければ空）
+// name: 主催・依頼元 / title: セミナー名 / type: 種別 / date: 実施年月（「2026年9月」形式） / participants: 参加者数（任意。不明なら ""） / url: 掲載記事など（無ければ ""）
 // 掲載は依頼元の許可を得たもののみ。新しいものを先頭に置く
 export const guestSeminars = [
   {
@@ -225,7 +225,47 @@ export const guestSeminars = [
     title: "AIセミナー",
     type: "出張セミナー",
     date: "2026年9月",
-    participants: "17名",
+    participants: "",
+    url: "",
+  },
+  {
+    name: "琴平町婦人会",
+    title: "「AIは難しくない」〜話しかけるだけで、暮らしがちょっと楽になる〜",
+    type: "出張セミナー",
+    date: "2026年3月",
+    participants: "",
+    url: "",
+  },
+  {
+    name: "琴平町役場",
+    title: "職員向けAI活用セミナー 第3回",
+    type: "職員研修",
+    date: "2025年6月",
+    participants: "",
+    url: "",
+  },
+  {
+    name: "琴平町商工会",
+    title: "AIセミナー",
+    type: "出張セミナー",
+    date: "2025年3月",
+    participants: "",
+    url: "",
+  },
+  {
+    name: "琴平町役場",
+    title: "職員向けAIセミナー 第2回（基礎知識編）",
+    type: "職員研修",
+    date: "2025年3月",
+    participants: "",
+    url: "",
+  },
+  {
+    name: "琴平町役場",
+    title: "職員向けAIセミナー 第1回（基礎知識編）",
+    type: "職員研修",
+    date: "2025年2月",
+    participants: "",
     url: "",
   },
 ];
